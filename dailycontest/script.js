@@ -1,12 +1,29 @@
 // ------------------ showing date and time------------------
 
-var currentDate = new Date();
-var cDay = currentDate.getDate()
-var cMonth = currentDate.getMonth() + 1
-var cYear = currentDate.getFullYear()
-var crtTime = cDay + "/" + cMonth + "/" + cYear
-var time = currentDate.getHours() + ":" + currentDate.getMinutes();
-document.getElementById("current-time").innerHTML = ("<b>" + crtTime + " , " + time + "</b>")
+
+function doDate() {
+  var str = "";
+
+  var days = new Array("اتوار", "سوموار", "منگل", "بدھ", "جمعرات", "جمع", "سنیچر");
+  var months = new Array("جنوری", "فروری", "مارچ", "اپریل", "مائی", "جون", "جلائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر");
+
+  var now = new Date();
+
+  str += days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " - " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+  document.getElementById("current-time").innerHTML = str;
+}
+
+setInterval(doDate, 1000);
+
+
+const currentDate = new Date();
+const cDay = currentDate.getDate()
+const cMonth = currentDate.getMonth() + 1
+const cYear = currentDate.getFullYear()
+const crtTime = cDay + "/" + cMonth + "/" + cYear
+const time = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+setTimeout(time, 1000)
+// document.getElementById("current-time").innerHTML = ("<b>" + crtTime + " , " + time + "</b>")
 
 // -----------------------displaying and hidng attendance div------------------
 
@@ -34,26 +51,26 @@ function clnazra() {
 // -------------------enabling and desabling hifz attendance checkboxes-------------
 
 function classchk() {
-  if(document.getElementById("missed").checked == true){
-    document.getElementById("subah").desabled = true
-    document.getElementById("dopahar").desabled = true
-    document.getElementById("sham").desabled = true
+  if (document.getElementById("missed").checked == true) {
+    document.getElementById("subah").disabled = true;
+    document.getElementById("dopahar").disabled = true;
+    document.getElementById("sham").disabled = true;
   }
-  else{
-    document.getElementById("subah").desabled = false
-    document.getElementById("dopahar").desabled = false
-    document.getElementById("sham").desabled = false
+  else {
+    document.getElementById("subah").disabled = false;
+    document.getElementById("dopahar").disabled = false;
+    document.getElementById("sham").disabled = false;
   }
 }
 function desablemissed() {
-  if (
+  if (event.currentTarget.checked == true ||
     document.getElementById("subah").checked == true ||
     document.getElementById("dopahar").checked == true ||
     document.getElementById("sham").checked == true == true) {
-    document.getElementById("missed").desabled = true
+    document.getElementById("missed").disabled = true;
   }
-  else{
-    document.getElementById("missed").desabled = false
+  else {
+    document.getElementById("missed").disabled = false;
   }
 }
 
@@ -113,26 +130,28 @@ function submit() {
   // alert(ctime)
   // var namaz = document.getElementById
 
-  var fajr = document.getElementById("fajr").checked ? document.getElementById("fajr").value + "," : "";
-  var zuhr = document.getElementById("zuhr").checked ? document.getElementById("zuhr").value + "," : "";
-  var asr = document.getElementById("asr").checked ? document.getElementById("asr").value + "," : "";
-  var maghrib = document.getElementById("maghrib").checked ? document.getElementById("maghrib").value + "," : "";
-  var isha = document.getElementById("isha").checked ? document.getElementById("isha").value + "," : "";
+  const fajr = document.getElementById("fajr").checked ? document.getElementById("fajr").value + "," : "";
+  const zuhr = document.getElementById("zuhr").checked ? document.getElementById("zuhr").value + "," : "";
+  const asr = document.getElementById("asr").checked ? document.getElementById("asr").value + "," : "";
+  const maghrib = document.getElementById("maghrib").checked ? document.getElementById("maghrib").value + "," : "";
+  const isha = document.getElementById("isha").checked ? document.getElementById("isha").value + "," : "";
 
-  var none = document.getElementById("none").checked ? document.getElementById("none").value + "," : "";
+  const none = document.getElementById("none").checked ? document.getElementById("none").value + "," : "";
 
-  var subah = document.getElementById("subah").checked ? document.getElementById("subah").value + "," : "";
-  var dopahar = document.getElementById("dopahar").checked ? document.getElementById("dopahar").value + "," : "";
-  var sham = document.getElementById("sham").checked ? document.getElementById("sham").value + "," : "";
+  const subah = document.getElementById("subah").checked ? document.getElementById("subah").value + "," : "";
+  const dopahar = document.getElementById("dopahar").checked ? document.getElementById("dopahar").value + "," : "";
+  const sham = document.getElementById("sham").checked ? document.getElementById("sham").value + "," : "";
 
-  var missed = document.getElementById("missed").checked ? document.getElementById("missed").value + "," : "";
+  const missed = document.getElementById("missed").checked ? document.getElementById("missed").value + "," : "";
 
+  const hazir = document.getElementById("hazir").checked ? document.getElementById("sham").value + "," : "";
+  const gherhazir = document.getElementById("gherhazir").checked ? document.getElementById("sham").value + "," : "";
 
-  let formdata = {
+  const formdata = {
     name: document.getElementById("name").value,
     time: crtTime + " - " + time,
     namaz: fajr + zuhr + asr + maghrib + isha + none,
-    hazri: subah + dopahar + sham + missed,
+    hazri: subah + dopahar + sham + missed + hazir + gherhazir,
     tayyari: document.querySelector('input[name="tayyari"]:checked').value,
     asbaq: document.querySelector('input[name="asbaq"]:checked').value,
     khidmat: document.querySelector('input[name="khidmat"]:checked').value,
