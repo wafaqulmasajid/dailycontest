@@ -1,0 +1,43 @@
+* :focus {
+    outline: none;
+}
+
+#current-time{
+    text-align: center;
+    font: roboto, regular;
+}
+
+p{
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    border-top: 1px solid white;
+    border-radius: 5px;
+    padding: 10px auto auto auto;
+}
+
+.col-md-6 {
+    text-align: end;
+}
+
+.row {
+    justify-content: space-around;
+}
+
+.form-check-input {
+    text-align: end;
+    align-content: flex-end;
+}
+
+.col-md-6 label, option {
+    text-align: end;
+}
+
+@font-face {
+    font-family: "jameel-noori-nastaleeq-kasheeda";
+    src: url("https://candyfonts.com/wp-data/2020/12/04/119068/Jameel Noori Nastaleeq Kasheeda.ttf") format("woff"),
+}
+
+body {
+    font-family: "jameel-noori-nastaleeq-kasheeda";
+}
