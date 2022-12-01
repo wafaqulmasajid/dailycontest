@@ -120,7 +120,6 @@ function desableNone() {
 //     .then(response => alert('Success!', response), form.clear)
 //     .catch(error => alert('Error!', error.message))
 // })
-// --------------- populating select data ----------------
 function submit() {
   // var name = document.getElementById("name").value
   // var ctime = time
@@ -147,14 +146,42 @@ function submit() {
   const hazir = document.getElementById("hazir").checked ? document.getElementById("sham").value + "," : "";
   const gherhazir = document.getElementById("gherhazir").checked ? document.getElementById("sham").value + "," : "";
 
+  const name = document.getElementById("name").value
+  const tayyari = document.querySelector('input[name="tayyari"]:checked').value
+  const asbaq = document.querySelector('input[name="asbaq"]:checked').value
+  const khddmat = document.querySelector('input[name="khidmat"]:checked').value
+
   const formdata = {
-    name: document.getElementById("name").value,
     time: crtTime + " - " + time,
+    naam: name,
     namaz: fajr + zuhr + asr + maghrib + isha + none,
     hazri: subah + dopahar + sham + missed + hazir + gherhazir,
-    tayyari: document.querySelector('input[name="tayyari"]:checked').value,
-    asbaq: document.querySelector('input[name="asbaq"]:checked').value,
-    khidmat: document.querySelector('input[name="khidmat"]:checked').value,
-  };
-  console.log(formdata);
+    tayyari: tayyari,
+    asbaq: asbaq,
+    khidmat: khddmat,
+  }
+  // jquery.ajax({
+  //   type: 'post',
+  //   data: formdata.serialize(),
+  //   success: function (result) {
+  //     console.log(result);
+  //   }
+  // })
+   var url = 'https://script.google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
+    // var url = "http://swapi.co/api/";
+
+$.ajax({
+  type: "POST",
+  url: url,
+  data: JSON.stringify(formdata),
+  contentType: "application/json; charset=utf-8",
+  dataType: "json",
+  error: function() {
+    alert("Error");
+  },
+  success: function() {
+    alert("OK");
+  }
+});
+
 }

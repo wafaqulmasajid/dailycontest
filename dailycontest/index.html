@@ -33,7 +33,7 @@
             <h1 id="msg"></h1>
             <label class="form-label">نام</label>
             <select id="name" name="name" class="form-select">
-                <option selected>نام سلکٹ کریں</option>
+                <option value="0" selected>نام سلکٹ کریں</option>
                 <option value='احمد حسن بن  ابرار احمد انصاری  صاحب جھانسی'>احمد حسن بن ابرار احمد انصاری صاحب
                     جھانسی 1</option>
                 <option value='اسمی بنت رفیع الدین  انصاری صاحب'>اسمی بنت رفیع الدین انصاری صاحب 2</option>
@@ -147,14 +147,14 @@
         <div class="col-md-6 my-3">
             <p>درجہ</p>
             <div class="form-check">
-                <input class="form-check-input" name="asbaq" value="بڑھا" type="radio" id="clh" onclick="clhifz()">
+                <input class="form-check-input" name="class" value="بڑھا" type="radio" id="clh" onclick="clhifz()">
                 <label class="form-check-label" for="gridCheck">
                     حفظ
                 </label>
             </div>
             <br>
             <div class="form-check">
-                <input class="form-check-input" name="asbaq" value="بڑھا" type="radio" id="cln" onclick="clnazra()">
+                <input class="form-check-input" name="class" value="بڑھا" type="radio" id="cln" onclick="clnazra()">
                 <label class="form-check-label" for="gridCheck">
                     ناظرہ/ دینیات
                 </label>
@@ -314,11 +314,12 @@
                     نہیں کیا
                 </label>
             </div>
-            <button type="button" class="btn btn-primary my-3 container" id="sub" onclick="submit()">جمع کریں</button>
+            <button type="button" class="btn btn-primary my-3 container" id="sub" onclick="submit()" desabled>جمع کریں</button>
         </div>
     </div>
     <!-- </form> -->
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
 
