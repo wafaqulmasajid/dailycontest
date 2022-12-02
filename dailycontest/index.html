@@ -17,10 +17,9 @@
 
 <body class="bg-dark text-light">
     <div class="container ">
-        <!-- <form class="row g-3" id="form">  -->
+        <form class="row g-3" id="form" type="submit" method="post">
+            <!-- action="https://script.google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec" -->
         <!-- ---- name="submit-to-google-sheet" method="post"---- -->
-        <!-- action="https://script.google.com/macros/s/AKfycbxeW1gHP5DV3G-_3PpTVlxP4iwr3dl_hCe7_RgiIY5749YnlFC71W2UqM3D_-R_Z82HDQ/exec" -->
-
         <!-- ---------------time----------- -->
         <div class="col-md-6 my-3">
             <p>وقت</p>
@@ -199,14 +198,14 @@
         <div class="col-md-6 my-3" id="nazra" style="display: none;">
             <p>حاضری</p>
             <div class="form-check">
-                <input class="form-check-input" name="hazri" value="کیا" type="radio" id="hazir">
+                <input class="form-check-input" name="hazri" value="حاضر" type="radio" id="hazir">
                 <label class="form-check-label" for="gridCheck">
                     حاضر
                 </label>
             </div>
             <br>
             <div class="form-check">
-                <input class="form-check-input" name="hazri value="نہیں کی" type="radio" id="gherhazir">
+                <input class="form-check-input" name="hazri" value="غیر حاضر" type="radio" id="gherhazir">
                 <label class="form-check-label text-danger" for="gridCheck">
                     غیر حاضر
                 </label>
@@ -314,10 +313,10 @@
                     نہیں کیا
                 </label>
             </div>
-            <button type="button" class="btn btn-primary my-3 container" id="sub" onclick="submit()" desabled>جمع کریں</button>
+            <button type="submit" class="btn btn-primary my-3 container" id="sub" onclick="submit()" desabled>جمع کریں</button>
         </div>
     </div>
-    <!-- </form> -->
+    </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="script.js"></script>

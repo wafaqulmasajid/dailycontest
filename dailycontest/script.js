@@ -1,18 +1,15 @@
 // ------------------ showing date and time------------------
-
-
 function doDate() {
   var str = "";
 
-  var days = new Array("اتوار", "سوموار", "منگل", "بدھ", "جمعرات", "جمع", "سنیچر");
+  var days = new Array("اتوار", "سوموار", "منگل", "بدھ", "جمعرات", "جمعہ", "سنیچر");
   var months = new Array("جنوری", "فروری", "مارچ", "اپریل", "مائی", "جون", "جلائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر");
 
   var now = new Date();
 
-  str += days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " - " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+  str += days[now.getDay()] + " " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " - " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
   document.getElementById("current-time").innerHTML = str;
 }
-
 setInterval(doDate, 1000);
 
 
@@ -111,15 +108,15 @@ function desableNone() {
 
 // ---------------- form submit with validation -------------
 
-// const scriptURL = 'https://script.google.com/macros/s/AKfycbxIkGZwJ40NeflsZfxwZk99VGH5GfmuJtaEtZpLt8Aq92NUAgmiLg0Vrt0ysK2XKw3h/exec'
-// const form = document.forms['submit-to-google-sheet']
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxIkGZwJ40NeflsZfxwZk99VGH5GfmuJtaEtZpLt8Aq92NUAgmiLg0Vrt0ysK2XKw3h/exec'
+const form = document.forms['submit-to-google-sheet']
 
-// form.addEventListener('submit', e => {
-//   e.preventDefault()
-//   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-//     .then(response => alert('Success!', response), form.clear)
-//     .catch(error => alert('Error!', error.message))
-// })
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => alert('Success!', response), form.clear)
+    .catch(error => alert('Error!', error.message))
+})
 function submit() {
   // var name = document.getElementById("name").value
   // var ctime = time
@@ -160,6 +157,17 @@ function submit() {
     asbaq: asbaq,
     khidmat: khddmat,
   }
+
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
+  const form = formdata // document.forms['submit-to-google-sheet']
+  document.getElementById("sub").addEventListener('click', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => alert('Success!', response), document.getElementById("form").clear)
+      .catch(error => alert('Error!', error.message))
+  }
+  )
+
   // jquery.ajax({
   //   type: 'post',
   //   data: formdata.serialize(),
@@ -167,21 +175,21 @@ function submit() {
   //     console.log(result);
   //   }
   // })
-   var url = 'https://script.google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
-    // var url = "http://swapi.co/api/";
+  // var url = 'https://script.google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
+  // var url = "http://swapi.co/api/";
 
-$.ajax({
-  type: "POST",
-  url: url,
-  data: JSON.stringify(formdata),
-  contentType: "application/json; charset=utf-8",
-  dataType: "json",
-  error: function() {
-    alert("Error");
-  },
-  success: function() {
-    alert("OK");
-  }
-});
+  // $.ajax({
+  //   type: "POST",
+  //   url: url,
+  //   data: JSON.stringify(formdata),
+  //   contentType: "application/json; charset=utf-8",
+  //   dataType: "json",
+  //   error: function () {
+  //     alert("Error");
+  //   },
+  //   success: function () {
+  //     alert("OK");
+  //   }
+  // });
 
 }
