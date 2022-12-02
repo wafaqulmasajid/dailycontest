@@ -2,12 +2,22 @@
     outline: none;
 }
 
-#current-time{
+#current-time, .head span{
     text-align: center;
     font: roboto, regular;
 }
 
-p{
+.heed{
+    text-align: center;
+}
+
+.logo{
+    height: 200px;
+    align-items: center;
+    text-align: center;
+}
+
+.head{
     text-align: center;
     font-size: larger;
     font-weight: bold;

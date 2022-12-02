@@ -113,7 +113,7 @@ const form = document.forms['submit-to-google-sheet']
 
 form.addEventListener('submit', e => {
   e.preventDefault()
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
     .then(response => alert('Success!', response), form.clear)
     .catch(error => alert('Error!', error.message))
 })
@@ -126,13 +126,7 @@ function submit() {
   // alert(ctime)
   // var namaz = document.getElementById
 
-  const fajr = document.getElementById("fajr").checked ? document.getElementById("fajr").value + "," : "";
-  const zuhr = document.getElementById("zuhr").checked ? document.getElementById("zuhr").value + "," : "";
-  const asr = document.getElementById("asr").checked ? document.getElementById("asr").value + "," : "";
-  const maghrib = document.getElementById("maghrib").checked ? document.getElementById("maghrib").value + "," : "";
-  const isha = document.getElementById("isha").checked ? document.getElementById("isha").value + "," : "";
-
-  const none = document.getElementById("none").checked ? document.getElementById("none").value + "," : "";
+  const name = document.getElementById("name").value
 
   const subah = document.getElementById("subah").checked ? document.getElementById("subah").value + "," : "";
   const dopahar = document.getElementById("dopahar").checked ? document.getElementById("dopahar").value + "," : "";
@@ -143,26 +137,39 @@ function submit() {
   const hazir = document.getElementById("hazir").checked ? document.getElementById("sham").value + "," : "";
   const gherhazir = document.getElementById("gherhazir").checked ? document.getElementById("sham").value + "," : "";
 
-  const name = document.getElementById("name").value
-  const tayyari = document.querySelector('input[name="tayyari"]:checked').value
-  const asbaq = document.querySelector('input[name="asbaq"]:checked').value
-  const khddmat = document.querySelector('input[name="khidmat"]:checked').value
+  const fajr = document.getElementById("fajr").checked ? document.getElementById("fajr").value + "," : "";
+  const zuhr = document.getElementById("zuhr").checked ? document.getElementById("zuhr").value + "," : "";
+  const asr = document.getElementById("asr").checked ? document.getElementById("asr").value + "," : "";
+  const maghrib = document.getElementById("maghrib").checked ? document.getElementById("maghrib").value + "," : "";
+  const isha = document.getElementById("isha").checked ? document.getElementById("isha").value + "," : "";
+
+  const none = document.getElementById("none").checked ? document.getElementById("none").value + "," : "";
+
+  // const tayyari = document.querySelector('input[name="tayyari"]:checked').value
+  const kiya = document.getElementById("kiya").checked ? document.getElementById("kiya").value + "," : ""
+  const nahin_kiya = document.getElementById("nahin_kiya").checked ? document.getElementById("nahin_kiya").value + "," : ""
+  // const asbaq = document.querySelector('input[name="asbaq"]:checked').value
+  const bdhe = document.getElementById("bdhe").checked ? document.getElementById("bdhe").value + "," : ""
+  const nahin_bdhe = document.getElementById("nahin_bdhe").checked ? document.getElementById("nahin_bdhe").value + "," : ""
+  // const khddmat = document.querySelector('input[name="khidmat"]:checked').value
+  const k_kiya = document.getElementById("k_kiya").checked ? document.getElementById("k_kiya").value + "," : ""
+  const k_nahin_kiya = document.getElementById("k_nahin_kiya").checked ? document.getElementById("k_nahin_kiya").value + "," : ""
 
   const formdata = {
     time: crtTime + " - " + time,
     naam: name,
     namaz: fajr + zuhr + asr + maghrib + isha + none,
     hazri: subah + dopahar + sham + missed + hazir + gherhazir,
-    tayyari: tayyari,
-    asbaq: asbaq,
-    khidmat: khddmat,
+    tayyari: kiya + nahin_kiya,
+    asbaq: bdhe + nahin_bdhe,
+    khidmat: k_kiya + k_nahin_kiya,
   }
 
   const scriptURL = 'https://script.google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
   const form = formdata // document.forms['submit-to-google-sheet']
   document.getElementById("sub").addEventListener('click', e => {
     e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
       .then(response => alert('Success!', response), document.getElementById("form").clear)
       .catch(error => alert('Error!', error.message))
   }
