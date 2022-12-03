@@ -25,24 +25,19 @@ setTimeout(time, 1000)
 // -----------------------displaying and hidng attendance div------------------
 
 function clhifz() {
-  if (event.currentTarget.checked == true) {
-    document.getElementById("hifz").style.display = "block";
-    document.getElementById("nazra").style.display = "none";
-  }
-  else {
-    document.getElementById("hifz").style.display = "none";
-    document.getElementById("nazra").style.display = "block";
-  }
-}
+  document.getElementById("hifz").style.display = "block";
+  document.getElementById("nazra").style.display = "none";
+  document.getElementById("deeniyat").style.display = "none";
+} 0
 function clnazra() {
-  if (event.currentTarget.checked == true) {
-    document.getElementById("hifz").style.display = "none";
-    document.getElementById("nazra").style.display = "block";
-  }
-  else {
-    document.getElementById("hifz").style.display = "block";
-    document.getElementById("nazra").style.display = "none";
-  }
+  document.getElementById("nazra").style.display = "block";
+  document.getElementById("hifz").style.display = "none";
+  document.getElementById("deeniyat").style.display = "none";
+}
+function cldeeniyat() {
+  document.getElementById("deeniyat").style.display = "block";
+  document.getElementById("hifz").style.display = "none";
+  document.getElementById("nazra").style.display = "none";
 }
 
 // -------------------enabling and desabling hifz attendance checkboxes-------------
@@ -71,6 +66,26 @@ function desablemissed() {
   }
 }
 
+function desabledmissed() {
+  if (event.currentTarget.checked == true ||
+    document.getElementById("dsubah").checked == true ||
+    document.getElementById("ddopahar").checked == true == true) {
+    document.getElementById("dmissed").disabled = true;
+  }
+  else {
+    document.getElementById("dmissed").disabled = false;
+  }
+}
+function clnazra() {
+  if (document.getElementById("dmissed").checked == true) {
+    document.getElementById("dsubah").disabled = true;
+    document.getElementById("ddopahar").disabled = true;
+  }
+  else {
+    document.getElementById("dsubah").disabled = false;
+    document.getElementById("ddopahar").disabled = false;
+  }
+}
 
 
 // -------------------enabling and desabling namaz checkboxes-------------
@@ -108,15 +123,15 @@ function desableNone() {
 
 // ---------------- form submit with validation -------------
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxIkGZwJ40NeflsZfxwZk99VGH5GfmuJtaEtZpLt8Aq92NUAgmiLg0Vrt0ysK2XKw3h/exec'
-const form = document.forms['submit-to-google-sheet']
+// const scriptURL = 'https://script.google.com/macros/s/AKfycbxIkGZwJ40NeflsZfxwZk99VGH5GfmuJtaEtZpLt8Aq92NUAgmiLg0Vrt0ysK2XKw3h/exec'
+// const form = document.forms['submit-to-google-sheet']
 
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-    .then(response => alert('Success!', response), form.clear)
-    .catch(error => alert('Error!', error.message))
-})
+// form.addEventListener('submit', e => {
+//   e.preventDefault()
+//   fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+//     .then(response => alert('Success!', response), form.clear)
+//     .catch(error => alert('Error!', error.message))
+// })
 function submit() {
   // var name = document.getElementById("name").value
   // var ctime = time
@@ -125,7 +140,7 @@ function submit() {
   // var khidmat = document.querySelector('input[name="khidmat"]:checked').value;
   // alert(ctime)
   // var namaz = document.getElementById
-
+  alert(document.getElementById("subah"))
   const name = document.getElementById("name").value
 
   const subah = document.getElementById("subah").checked ? document.getElementById("subah").value + "," : "";
@@ -134,8 +149,8 @@ function submit() {
 
   const missed = document.getElementById("missed").checked ? document.getElementById("missed").value + "," : "";
 
-  const hazir = document.getElementById("hazir").checked ? document.getElementById("sham").value + "," : "";
-  const gherhazir = document.getElementById("gherhazir").checked ? document.getElementById("sham").value + "," : "";
+  const hazir = document.getElementById("dhazir").checked ? document.getElementById("sham").value + "," : "";
+  const gherhazir = document.getElementById("dgherhazir").checked ? document.getElementById("sham").value + "," : "";
 
   const fajr = document.getElementById("fajr").checked ? document.getElementById("fajr").value + "," : "";
   const zuhr = document.getElementById("zuhr").checked ? document.getElementById("zuhr").value + "," : "";
@@ -164,16 +179,16 @@ function submit() {
     asbaq: bdhe + nahin_bdhe,
     khidmat: k_kiya + k_nahin_kiya,
   }
-
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
+  console.log(formdata)
+  const scriptURL = 'https://google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
   const form = formdata // document.forms['submit-to-google-sheet']
-  document.getElementById("sub").addEventListener('click', e => {
-    e.preventDefault()
+  // document.getElementById("sub").addEventListener('click', e => {
+  //   e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
       .then(response => alert('Success!', response), document.getElementById("form").clear)
       .catch(error => alert('Error!', error.message))
   }
-  )
+  // )
 
   // jquery.ajax({
   //   type: 'post',
@@ -199,4 +214,4 @@ function submit() {
   //   }
   // });
 
-}
+// }

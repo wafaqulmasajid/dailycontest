@@ -21,7 +21,7 @@
         <div class="head my-6">
             <h1 class="text-center my-4 text-success">
                 افتخار المکاتب تجوید القرآن <br> جعفرا بازار، گورکھپور، یو پی<br>
-                <span class="my-3">TajweedulQuraan, Jafra Bazar <br> Gorakhpur, U.P.</span> 
+                <span class="my-3">TajweedulQuraan, Jafra Bazar <br> Gorakhpur, U.P.</span>
             </h1>
             <img class="logo" src="../images/logo.png">
             <h3 class="text-center my-4">
@@ -48,7 +48,7 @@
             </p>
             <hr>
         </div>
-        <form class="row g-3" id="form" type="submit" method="post">
+        <form class="row g-3" id="form" name="submit-to-google-sheet">
             <!-- action="https://script.google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec" -->
             <!-- ---- name="submit-to-google-sheet" method="post"---- -->
             <!-- ---------------time----------- -->
@@ -178,16 +178,26 @@
             <div class="col-md-6 my-3">
                 <p class="head">درجہ</p>
                 <div class="form-check">
-                    <input class="form-check-input" name="class" value="بڑھا" type="radio" id="clh" onclick="clhifz()">
+                    <input class="form-check-input" name="class" value="بڑھا" type="radio" id="clh"
+                    onclick="clhifz()">
                     <label class="form-check-label" for="gridCheck">
-                        حفظ
+                        شعبہ حفظ
                     </label>
                 </div>
                 <br>
                 <div class="form-check">
-                    <input class="form-check-input" name="class" value="بڑھا" type="radio" id="cln" onclick="clnazra()">
+                    <input class="form-check-input" name="class" value="بڑھا" type="radio" id="cln"
+                    onclick="clnazra()">
                     <label class="form-check-label" for="gridCheck">
-                        ناظرہ/ دینیات
+                        شعبہ ناظرہ
+                    </label>
+                </div>
+                <br>
+                <div class="form-check">
+                    <input class="form-check-input" name="class" value="بڑھا" type="radio" id="cld"
+                        onclick="cldeeniyat()">
+                    <label class="form-check-label" for="gridCheck">
+                        شعبہ دینیات
                     </label>
                 </div>
                 <hr>
@@ -227,18 +237,42 @@
                 </div>
                 <hr>
             </div>
-            <!-- ---------------nazra----------- -->
-            <div class="col-md-6 my-3" id="nazra" style="display: none;">
+            <!-- ---------------deeniyat----------- -->
+            <div class="col-md-6 my-3" id="deeniyat" style="display: none;">
                 <p class="head">حاضری</p>
                 <div class="form-check">
-                    <input class="form-check-input" name="hazri" value="حاضر" type="radio" id="hazir">
+                    <input class="form-check-input" name="hazri" value="حاضر" type="radio" id="dhazir">
                     <label class="form-check-label" for="gridCheck">
                         حاضر
                     </label>
                 </div>
                 <br>
                 <div class="form-check">
-                    <input class="form-check-input" name="hazri" value="غیر حاضر" type="radio" id="gherhazir">
+                    <input class="form-check-input" name="hazri" value="غیر حاضر" type="radio" id="dgherhazir">
+                    <label class="form-check-label text-danger" for="gridCheck">
+                        غیر حاضر
+                    </label>
+                </div>
+                <hr>
+            </div>
+            <!-- ---------------nazra----------- -->
+            <div class="col-md-6 my-3" id="nazra" style="display: none;">
+                <p class="head">حاضری</p>
+                <div class="form-check">
+                    <input class="form-check-input" name="hazri" value="صبح" type="checkbox" id="dsubah" onclick="desabledmissed()">
+                    <label class="form-check-label" for="gridCheck">
+                        صبح
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="hazri" value="دوپہر" type="checkbox" id="ddopahar" onclick="desabledmissed()">
+                    <label class="form-check-label" for="gridCheck">
+                        دوپہر
+                    </label>
+                </div>
+                <br>
+                <div class="form-check">
+                    <input class="form-check-input" name="hazri" value="غیر حاضر" type="checkbox" id="dmissed" onclick="clnazra()">
                     <label class="form-check-label text-danger" for="gridCheck">
                         غیر حاضر
                     </label>
@@ -346,7 +380,7 @@
                         نہیں کیا
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary my-3 container" id="sub" onclick="submit()" desabled>جمع
+                <button type="button" class="btn btn-primary my-3 container" id="sub" onclick="submit()">جمع
                     کریں</button>
             </div>
     </div>
