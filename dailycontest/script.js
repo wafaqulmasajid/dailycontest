@@ -47,22 +47,44 @@ function classchk() {
     document.getElementById("subah").disabled = true;
     document.getElementById("dopahar").disabled = true;
     document.getElementById("sham").disabled = true;
+    document.getElementById("hc").disabled = true;
   }
   else {
     document.getElementById("subah").disabled = false;
     document.getElementById("dopahar").disabled = false;
     document.getElementById("sham").disabled = false;
+    document.getElementById("hc").disabled = false;
   }
 }
+
+function ccchk() {
+  if (document.getElementById("hc").checked == true) {
+    document.getElementById("subah").disabled = true;
+    document.getElementById("dopahar").disabled = true;
+    document.getElementById("sham").disabled = true;
+    document.getElementById("missed").disabled = true;
+  }
+  else {
+    document.getElementById("subah").disabled = false;
+    document.getElementById("dopahar").disabled = false;
+    document.getElementById("sham").disabled = false;
+    document.getElementById("missed").disabled = false;
+  }
+}
+
+
 function desablemissed() {
   if (event.currentTarget.checked == true ||
     document.getElementById("subah").checked == true ||
     document.getElementById("dopahar").checked == true ||
-    document.getElementById("sham").checked == true == true) {
+    document.getElementById("sham").checked == true ||
+    document.getElementById("hc").checked == true == true) {
     document.getElementById("missed").disabled = true;
+    document.getElementById("hc").disabled = true;
   }
   else {
     document.getElementById("missed").disabled = false;
+    document.getElementById("hc").disabled = false;
   }
 }
 
@@ -71,19 +93,36 @@ function desabledmissed() {
     document.getElementById("nsubah").checked == true ||
     document.getElementById("ndopahar").checked == true == true) {
     document.getElementById("nmissed").disabled = true;
+    document.getElementById("nc").disabled = true;
   }
   else {
     document.getElementById("nmissed").disabled = false;
+    document.getElementById("nc").disabled = false;
   }
 }
 function desablesd() {
   if (document.getElementById("nmissed").checked == true) {
     document.getElementById("nsubah").disabled = true;
     document.getElementById("ndopahar").disabled = true;
+    document.getElementById("nc").disabled = true;
   }
   else {
     document.getElementById("nsubah").disabled = false;
     document.getElementById("ndopahar").disabled = false;
+    document.getElementById("nc").disabled = false;
+  }
+}
+
+function desablesdc() {
+  if (document.getElementById("nc").checked == true) {
+    document.getElementById("nsubah").disabled = true;
+    document.getElementById("ndopahar").disabled = true;
+    document.getElementById("nmissed").disabled = true;
+  }
+  else {
+    document.getElementById("nsubah").disabled = false;
+    document.getElementById("ndopahar").disabled = false;
+    document.getElementById("nmissed").disabled = false;
   }
 }
 
@@ -140,17 +179,29 @@ function submit() {
   // var khidmat = document.querySelector('input[name="khidmat"]:checked').value;
   // alert(ctime)
   // var namaz = document.getElementById
-  alert(document.getElementById("subah"))
+  // alert(document.getElementById("subah"))
   const name = document.getElementById("name").value
+
+  const clh = document.getElementById("clh").checked ? document.getElementById("clh").value : "";
+  const cln = document.getElementById("cln").checked ? document.getElementById("cln").value : "";
+  const cld = document.getElementById("cld").checked ? document.getElementById("cld").value : "";
 
   const subah = document.getElementById("subah").checked ? document.getElementById("subah").value + "," : "";
   const dopahar = document.getElementById("dopahar").checked ? document.getElementById("dopahar").value + "," : "";
   const sham = document.getElementById("sham").checked ? document.getElementById("sham").value + "," : "";
+  const hc = document.getElementById("hc").checked ? document.getElementById("hc").value + "," : "";
 
   const missed = document.getElementById("missed").checked ? document.getElementById("missed").value + "," : "";
 
-  const hazir = document.getElementById("dhazir").checked ? document.getElementById("sham").value + "," : "";
-  const gherhazir = document.getElementById("dgherhazir").checked ? document.getElementById("sham").value + "," : "";
+  const hazir = document.getElementById("dhazir").checked ? document.getElementById("dhazir").value + "," : "";
+  const gherhazir = document.getElementById("dgherhazir").checked ? document.getElementById("dgherhazir").value + "," : "";
+  const dc = document.getElementById("dc").checked ? document.getElementById("dc").value + "," : "";
+
+  const nsubah = document.getElementById("nsubah").checked ? document.getElementById("nsubah").value + "," : ""
+  const ndopahar = document.getElementById("ndopahar").checked ? document.getElementById("ndopahar").value + "," : ""
+  const nc = document.getElementById("nc").checked ? document.getElementById("nc").value + "," : ""
+
+  const nmissed = document.getElementById("nmissed").checked ? document.getElementById("nmissed").value : ""
 
   const fajr = document.getElementById("fajr").checked ? document.getElementById("fajr").value + "," : "";
   const zuhr = document.getElementById("zuhr").checked ? document.getElementById("zuhr").value + "," : "";
@@ -173,21 +224,72 @@ function submit() {
   const formdata = {
     time: crtTime + " - " + time,
     naam: name,
+    class: clh + cln + cld,
+    hazri: subah + dopahar + sham + missed + hazir + gherhazir + nsubah + ndopahar + nmissed + hc + dc + nc,
     namaz: fajr + zuhr + asr + maghrib + isha + none,
-    hazri: subah + dopahar + sham + missed + hazir + gherhazir,
     tayyari: kiya + nahin_kiya,
     asbaq: bdhe + nahin_bdhe,
     khidmat: k_kiya + k_nahin_kiya,
   }
-  console.log(formdata)
-  const scriptURL = 'https://google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
-  const form = formdata // document.forms['submit-to-google-sheet']
-  // document.getElementById("sub").addEventListener('click', e => {
-  //   e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-      .then(response => alert('Success!', response), document.getElementById("form").clear)
-      .catch(error => alert('Error!', error.message))
+
+  const nmsg = document.getElementById("nmsg")
+  const dmsg = document.getElementById("dmsg")
+  const hmsg = document.getElementById("hmsg")
+  const hdmsg = document.getElementById("hdmsg")
+  const hnmsg = document.getElementById("hnmsg")
+  const namsg = document.getElementById("namsg")
+  const mmsg = document.getElementById("mmsg")
+  const smsg = document.getElementById("smsg")
+  const kmsg = document.getElementById("kmsg")
+  // const cmsg = document.getElementById("cmsg")
+
+  if (formdata.naam == "0") {
+    nmsg.innerHTML = "براہ کرم نام چنیں", window.location.hash = "#nmsg", setTimeout(function () {
+      nmsg.innerHTML = ""
+    }, 5000)
   }
+  else if (formdata.class.length < 1) {
+    dmsg.innerHTML = "براہ کرم درجہ چنیں", window.location.hash = "#dmsg", setTimeout(function () {
+      dmsg.innerHTML = ""
+    }, 5000)
+  }
+  else if (formdata.hazri.length < 1) {
+    hmsg.innerHTML, hdmsg.innerHTML, hnmsg.innerHTML = "براہ کرم حاضری میں سے کم از کم کوئی ایک چنیں", window.location.hash = "#hmsg", setTimeout(function () {
+      hmsg.innerHTML, hdmsg.innerHTML, hnmsg.innerHTML = ""
+    }, 5000)
+  }
+  else if (formdata.namaz.length < 1) {
+    namsg.innerHTML = "براہ کرم نماز میں سے کوئی ایک چنیں", window.location.hash = "#namsg", setTimeout(function () {
+      namsg.innerHTML = ""
+    }, 5000)
+  }
+  else if (formdata.tayyari.length < 1) {
+    mmsg.innerHTML = "براہ کرم مکتب کی تیاری میں سے کوئی ایک چنیں", window.location.hash = "#mmsg", setTimeout(function () {
+      mmsg.innerHTML = ""
+    }, 5000)
+  }
+  else if (formdata.asbaq.length < 1) {
+    smsg.innerHTML = "براہ کرم اسباق میں سے کوئی ایک چنیں", window.location.hash = "#smsg", setTimeout(function () {
+      smsg.innerHTML = ""
+    }, 5000)
+  }
+  else if (formdata.khidmat.length < 1) {
+    kmsg.innerHTML = "براہ کرم خدمت میں سے کوئی ایک چنیں", window.location.hash = "#smsg", setTimeout(function () {
+      kmsg.innerHTML = ""
+    }, 5000)
+  }
+  else {
+    console.log(formdata)
+    alert("Cant Submit the object 'formdata' needs a html form to submit to google sheet\n plese help to submit the object data to any readable and editable excel or csv file\n have an eye in your console to see the object data\n Thank You")
+  }
+}
+  // const scriptURL = 'https://google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
+  // const form = formdata // document.forms['submit-to-google-sheet']
+  // // document.getElementById("sub").addEventListener('click', e => {
+  // //   e.preventDefault()
+  // fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+  //   .then(response => alert('Success!', response), document.getElementById("form").clear)
+  //   .catch(error => alert('Error!', error.message))
   // )
 
   // jquery.ajax({
