@@ -2,22 +2,21 @@
     outline: none;
 }
 
-#current-time, .head span{
+#current-time,
+.head span {
     text-align: center;
     font: roboto, regular;
 }
 
-.heed{
-    text-align: center;
-}
 
-.logo{
+.logo {
     height: 200px;
     align-items: center;
     text-align: center;
+    padding: auto auto auto auto;
 }
 
-.head{
+.head {
     text-align: center;
     font-size: larger;
     font-weight: bold;
@@ -25,6 +24,16 @@
     border-radius: 5px;
     padding: 10px auto auto auto;
 }
+
+.m-head {
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+    border-radius: 5px;
+    padding: 10px auto auto auto;
+}
+
 
 .col-md-6 {
     text-align: end;
@@ -39,7 +48,8 @@
     align-content: flex-end;
 }
 
-.col-md-6 label, option {
+.col-md-6 label,
+option {
     text-align: end;
 }
 
