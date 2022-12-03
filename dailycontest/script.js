@@ -28,7 +28,7 @@ function clhifz() {
   document.getElementById("hifz").style.display = "block";
   document.getElementById("nazra").style.display = "none";
   document.getElementById("deeniyat").style.display = "none";
-} 0
+}
 function clnazra() {
   document.getElementById("nazra").style.display = "block";
   document.getElementById("hifz").style.display = "none";
@@ -40,7 +40,7 @@ function cldeeniyat() {
   document.getElementById("nazra").style.display = "none";
 }
 
-// -------------------enabling and desabling hifz attendance checkboxes-------------
+// -------------------enabling and desabling hifz, nazra - attendance checkboxes-------------
 
 function classchk() {
   if (document.getElementById("missed").checked == true) {
@@ -68,22 +68,22 @@ function desablemissed() {
 
 function desabledmissed() {
   if (event.currentTarget.checked == true ||
-    document.getElementById("dsubah").checked == true ||
-    document.getElementById("ddopahar").checked == true == true) {
-    document.getElementById("dmissed").disabled = true;
+    document.getElementById("nsubah").checked == true ||
+    document.getElementById("ndopahar").checked == true == true) {
+    document.getElementById("nmissed").disabled = true;
   }
   else {
-    document.getElementById("dmissed").disabled = false;
+    document.getElementById("nmissed").disabled = false;
   }
 }
-function clnazra() {
-  if (document.getElementById("dmissed").checked == true) {
-    document.getElementById("dsubah").disabled = true;
-    document.getElementById("ddopahar").disabled = true;
+function desablesd() {
+  if (document.getElementById("nmissed").checked == true) {
+    document.getElementById("nsubah").disabled = true;
+    document.getElementById("ndopahar").disabled = true;
   }
   else {
-    document.getElementById("dsubah").disabled = false;
-    document.getElementById("ddopahar").disabled = false;
+    document.getElementById("nsubah").disabled = false;
+    document.getElementById("ndopahar").disabled = false;
   }
 }
 
