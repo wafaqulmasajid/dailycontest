@@ -10,21 +10,25 @@
 } */
 
 .visible{
-    display: block;
+    /* display: block; */
     position: fixed;
     top: -28px;
-    /* left: auto; */
-    /* right: 10%; */
-    /* padding: auto; */
+    left: 12px;
+    right: 12px;
+    margin: auto;
+    min-width: 300px;
+    max-width: 75%;
     transition: 0.5s;
-    min-width: 80%;
 }
 
 .hidden{
     position: fixed;
     top: -105vh;
+    /* left: 10vh;
+    right: 10vh; */
+    min-width: 300px;
+    max-width: 75%;
     transition: 0.5s;
-    min-width: 80%;
 }
 
 /* #alert{
