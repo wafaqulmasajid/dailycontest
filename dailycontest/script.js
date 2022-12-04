@@ -270,7 +270,7 @@ function submit() {
   }
   //  -------------------------- validating form details -------------------
   if (formdata.naam.length == "") {
-    nmsg.innerHTML = "براہ کرم نام چنیں", window.location.hash = "#name", setTimeout(function () {
+    nmsg.innerHTML = "براہ کرم نام چنیں", window.location.hash = "#current-time", setTimeout(function () {
       nmsg.innerHTML = ""
     }, 5000)
   }
