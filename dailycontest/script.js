@@ -7,7 +7,7 @@ function doDate() {
 
   var now = new Date();
 
-  str += days[now.getDay()] + " " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " - " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+  str += days[now.getDay()] + " / " + now.getDate() + " / " + months[now.getMonth()] + " / " + now.getFullYear() + " - " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
   document.getElementById("current-time").innerHTML = str;
 }
 setInterval(doDate, 1000);
@@ -159,6 +159,29 @@ function desableNone() {
   }
 }
 
+// const formdata = {
+//   time: getDay + "/" + getMonth + "/" + getFullYear + " , " + getHours + ":" + getMinutes + ":" + getSeconds,      //crtTime + " - " + time,
+//   naam: naam,
+//   class: clh + cln + cld,
+//   hazri: subah + dopahar + sham + missed + hazir + gherhazir + nsubah + ndopahar + nmissed + hc + dc + nc,
+//   namaz: fajr + zuhr + asr + maghrib + isha + none,
+//   tayyari: kiya + nahin_kiya,
+//   asbaq: bdhe + nahin_bdhe,
+//   khidmat: k_kiya + k_nahin_kiya,
+// }
+
+// -------------------------error messages ids -----------------------------
+
+const nmsg = document.getElementById("nmsg")
+const dmsg = document.getElementById("dmsg")
+const hmsg = document.getElementById("hmsg")
+const hdmsg = document.getElementById("hdmsg")
+const hnmsg = document.getElementById("hnmsg")
+const namsg = document.getElementById("namsg")
+const mmsg = document.getElementById("mmsg")
+const smsg = document.getElementById("smsg")
+const kmsg = document.getElementById("kmsg")
+
 
 // ---------------- form submit with validation -------------
 
@@ -171,6 +194,15 @@ function desableNone() {
 //     .then(response => alert('Success!', response), form.clear)
 //     .catch(error => alert('Error!', error.message))
 // })
+
+var allrt = document.getElementById("alert") // alrt box
+var almsg = document.getElementById("almsg") // art msg
+
+var ergreen = almsg.classList.add("text-success");
+var erred = almsg.classList.add("text-danger");
+var ergreenn = almsg.classList.remove("text-success");
+var erredn = almsg.classList.remove("text-danger");
+
 function submit() {
   // var name = document.getElementById("name").value
   // var ctime = time
@@ -180,7 +212,10 @@ function submit() {
   // alert(ctime)
   // var namaz = document.getElementById
   // alert(document.getElementById("subah"))
-  const name = document.getElementById("name").value
+
+
+  // --------------------- collecting data -------------------
+  const naam = document.getElementById("name").value
 
   const clh = document.getElementById("clh").checked ? document.getElementById("clh").value : "";
   const cln = document.getElementById("cln").checked ? document.getElementById("cln").value : "";
@@ -221,9 +256,10 @@ function submit() {
   const k_kiya = document.getElementById("k_kiya").checked ? document.getElementById("k_kiya").value + "," : ""
   const k_nahin_kiya = document.getElementById("k_nahin_kiya").checked ? document.getElementById("k_nahin_kiya").value + "," : ""
 
+  // --------------------taking form data to an object --------------------
   const formdata = {
     time: crtTime + " - " + time,
-    naam: name,
+    naam: naam,
     class: clh + cln + cld,
     hazri: subah + dopahar + sham + missed + hazir + gherhazir + nsubah + ndopahar + nmissed + hc + dc + nc,
     namaz: fajr + zuhr + asr + maghrib + isha + none,
@@ -231,20 +267,9 @@ function submit() {
     asbaq: bdhe + nahin_bdhe,
     khidmat: k_kiya + k_nahin_kiya,
   }
-
-  const nmsg = document.getElementById("nmsg")
-  const dmsg = document.getElementById("dmsg")
-  const hmsg = document.getElementById("hmsg")
-  const hdmsg = document.getElementById("hdmsg")
-  const hnmsg = document.getElementById("hnmsg")
-  const namsg = document.getElementById("namsg")
-  const mmsg = document.getElementById("mmsg")
-  const smsg = document.getElementById("smsg")
-  const kmsg = document.getElementById("kmsg")
-  // const cmsg = document.getElementById("cmsg")
-
-  if (formdata.naam == "0") {
-    nmsg.innerHTML = "براہ کرم نام چنیں", window.location.hash = "#nmsg", setTimeout(function () {
+  //  -------------------------- validating form details -------------------
+  if (formdata.naam.length == "") {
+    nmsg.innerHTML = "براہ کرم نام چنیں", window.location.hash = "#name", setTimeout(function () {
       nmsg.innerHTML = ""
     }, 5000)
   }
@@ -254,8 +279,8 @@ function submit() {
     }, 5000)
   }
   else if (formdata.hazri.length < 1) {
-    hmsg.innerHTML, hdmsg.innerHTML, hnmsg.innerHTML = "براہ کرم حاضری میں سے کم از کم کوئی ایک چنیں", window.location.hash = "#hmsg", setTimeout(function () {
-      hmsg.innerHTML, hdmsg.innerHTML, hnmsg.innerHTML = ""
+    hmsg.innerHTML = "براہ کرم حاضری میں سے کم از کم کوئی ایک چنیں", hdmsg.innerHTML = "براہ کرم حاضری میں سے کم از کم کوئی ایک چنیں", hnmsg.innerHTML = "براہ کرم حاضری میں سے کم از کم کوئی ایک چنیں", window.location.hash = "#attendance", setTimeout(function () {
+      hmsg.innerHTML = "", hdmsg.innerHTML = "", hnmsg.innerHTML = ""
     }, 5000)
   }
   else if (formdata.namaz.length < 1) {
@@ -278,10 +303,31 @@ function submit() {
       kmsg.innerHTML = ""
     }, 5000)
   }
+  // ---------------------- output after validation -------------------
   else {
+
     console.log(formdata)
-    alert("Cant Submit the object 'formdata' needs a html form to submit to google sheet\n plese help to submit the object data to any readable and editable excel or csv file\n have an eye in your console to see the object data\n Thank You")
+
+    // ------------------- alert box making visible ------------------
+    allrt.classList.add("visible")
+    allrt.classList.remove("hidden")
+
+    var successmsg = `ماشا اللہ لا قو الا باللہ\n مبارک ہو \nآپکی آج کی مکمل تفصیل جمع کر لی گئی ہے`
+    var errormsg = "انالله و انا الیہ راجعون\n ہمیں افسوس ہے ابھی آپکی تفصیل جمع نہیں ہو سکی ہے\n دوبارہ کوشش کریں"
+    // ماشا اللہ لا قو الا باللہ\n مبارک ہو \nآپکی آج کی مکمل تفصیل جمع کر لی گئی ہے
+    // انالله و انا الیہ راجعون\n ہمیں افسوس ہے ابھی آپکی تفصیل جمع نہیں ہو سکی ہے\n دوبارہ کوشش کریں
+    allrt, erred, almsg.innerText = errormsg //`Can't Submit the "object: formdata" current script needs data of html form to submit to google sheet\n Plese help to submit the object data to any readable and editable excel or csv file\n Have an eye in your console to see the object data\n Thank You` //errormsg
+    // alert("Cant Submit the object 'formdata' needs a html form to submit to google sheet\n plese help to submit the object data to any readable and editable excel or csv file\n have an eye in your console to see the object data\n Thank You")
   }
+}
+
+// --------------------hiding alert box --------------
+
+function okay() {
+  allrt.classList.add("hidden")
+  allrt.classList.remove("visible")
+  ergreenn
+  erredn
 }
   // const scriptURL = 'https://google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
   // const form = formdata // document.forms['submit-to-google-sheet']

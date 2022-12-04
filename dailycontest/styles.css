@@ -2,7 +2,38 @@
     outline: none;
 }
 
-#current-time,
+/* #alert{
+    font-family: 'Poppins', sans-serif;
+    position: fixed;
+    top: 15px;
+    display: none;
+} */
+
+.visible{
+    display: block;
+    position: fixed;
+    top: -28px;
+    /* left: auto; */
+    /* right: 10%; */
+    /* padding: auto; */
+    transition: 0.5s;
+    min-width: 80%;
+}
+
+.hidden{
+    position: fixed;
+    top: -105vh;
+    transition: 0.5s;
+    min-width: 80%;
+}
+
+/* #alert{
+    font-family: 'Poppins', sans-serif;
+    position: static;
+    top: 0px;
+    transition: 0.5s;
+} */
+
 .head span {
     text-align: center;
     font: roboto, regular;
