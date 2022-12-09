@@ -9,18 +9,9 @@ function doDate() {
 
   str += days[now.getDay()] + " / " + now.getDate() + " / " + months[now.getMonth()] + " / " + now.getFullYear() + " - " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
   document.getElementById("current-time").innerHTML = str;
+  document.getElementById("time").value = str;
 }
 setInterval(doDate, 1000);
-
-
-const currentDate = new Date();
-const cDay = currentDate.getDate()
-const cMonth = currentDate.getMonth() + 1
-const cYear = currentDate.getFullYear()
-const crtTime = cDay + "/" + cMonth + "/" + cYear
-const time = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
-setTimeout(time, 1000)
-// document.getElementById("current-time").innerHTML = ("<b>" + crtTime + " , " + time + "</b>")
 
 // -----------------------displaying and hidng attendance div------------------
 
@@ -159,17 +150,6 @@ function desableNone() {
   }
 }
 
-// const formdata = {
-//   time: getDay + "/" + getMonth + "/" + getFullYear + " , " + getHours + ":" + getMinutes + ":" + getSeconds,      //crtTime + " - " + time,
-//   naam: naam,
-//   class: clh + cln + cld,
-//   hazri: subah + dopahar + sham + missed + hazir + gherhazir + nsubah + ndopahar + nmissed + hc + dc + nc,
-//   namaz: fajr + zuhr + asr + maghrib + isha + none,
-//   tayyari: kiya + nahin_kiya,
-//   asbaq: bdhe + nahin_bdhe,
-//   khidmat: k_kiya + k_nahin_kiya,
-// }
-
 // -------------------------error messages ids -----------------------------
 
 const nmsg = document.getElementById("nmsg")
@@ -195,7 +175,7 @@ const kmsg = document.getElementById("kmsg")
 //     .catch(error => alert('Error!', error.message))
 // })
 
-var allrt = document.getElementById("alert") // alrt box
+var allrt = document.getElementById("alert")// alrt box
 var almsg = document.getElementById("almsg") // art msg
 
 var ergreen = almsg.classList.add("text-success");
@@ -257,9 +237,8 @@ function submit() {
   const k_nahin_kiya = document.getElementById("k_nahin_kiya").checked ? document.getElementById("k_nahin_kiya").value + "," : ""
 
   // --------------------taking form data to an object --------------------
-  
+
   const formdata = {
-    time: crtTime + " - " + time,
     naam: naam,
     class: clh + cln + cld,
     hazri: subah + dopahar + sham + missed + hazir + gherhazir + nsubah + ndopahar + nmissed + hc + dc + nc,
@@ -307,28 +286,53 @@ function submit() {
   // ---------------------- output after validation -------------------
   else {
 
-    console.log(formdata)
+    let nname = document.getElementById("nname").value = formdata.naam
+    let nclass = document.getElementById("nclass").value = formdata.class
+    let nattendance = document.getElementById("nattendance").value = formdata.hazri
+    let nnamaz = document.getElementById("nnamaz").value = formdata.namaz
+    let ntayyari = document.getElementById("ntayyari").value = formdata.tayyari
+    let nasbaq = document.getElementById("nasbaq").value = formdata.asbaq
+    let nkhidmat = document.getElementById("nkhidmat").value = formdata.khidmat
 
-    // ------------------- alert box making visible ------------------
-    allrt.classList.add("visible")
-    allrt.classList.remove("hidden")
 
-    var successmsg = `ماشا اللہ لا قو الا باللہ\n مبارک ہو \nآپکی آج کی مکمل تفصیل جمع کر لی گئی ہے`
-    var errormsg = "انالله و انا الیہ راجعون\n ہمیں افسوس ہے ابھی آپکی تفصیل جمع نہیں ہو سکی ہے\n دوبارہ کوشش کریں"
-    // ماشا اللہ لا قو الا باللہ\n مبارک ہو \nآپکی آج کی مکمل تفصیل جمع کر لی گئی ہے
-    // انالله و انا الیہ راجعون\n ہمیں افسوس ہے ابھی آپکی تفصیل جمع نہیں ہو سکی ہے\n دوبارہ کوشش کریں
-    allrt; erred; almsg.innerText = errormsg //`Can't Submit the "object: formdata" current script needs data of html form to submit to google sheet\n Plese help to submit the object data to any readable and editable excel or csv file\n Have an eye in your console to see the object data\n Thank You` //errormsg
-    // alert("Cant Submit the object 'formdata' needs a html form to submit to google sheet\n plese help to submit the object data to any readable and editable excel or csv file\n have an eye in your console to see the object data\n Thank You")
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzerlClZ6gC39DDGrCMdduyS3tDjXlr9kWvAkJg-_R2wtFHXfctZV4E2WwiLmyHGRye/exec'
+    const form = document.forms['submit-to-google-sheet']
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(_response => {
+          allrt.classList.remove("hidden");
+          allrt.classList.add("visible");
+          almsg.classList.remove("text-dark");
+          almsg.classList.add("text-success");
+          almsg.innerText = `ماشا اللہ لا قو الا باللہ\n مبارک ہو \nآپکی آج کی مکمل تفصیل جمع کر لی گئی ہے`
+
+          // document.forms['form'].element.reset()
+        })
+      form.reset()
+        .catch(_error => {
+          allrt.classList.remove("hidden");
+          allrt.classList.add("visible");
+          almsg.classList.remove("text-dark");
+          almsg.classList.add("text-danger");
+          almsg.innerText = `انالله و انا الیہ راجعون\n ہمیں افسوس ہے ابھی آپکی تفصیل جمع نہیں ہو سکی ہے\n دوبارہ کوشش کریں"`
+        })
+    })
+    return sub()
   }
+}function sub(){
+  document.getElementById("submit").click()
 }
+
+
 
 // await Excel.run(async (context) => {
 //   let sheet = context.workbook.worksheets.getItem("data");
-  
+
 //   let range = sheet.getRange("B2:C5");
 //   range.load("address");
 //   await context.sync();
-  
+
 //   console.log(`The address of the range B2:C5 is "${range.address}"`);
 // });
 

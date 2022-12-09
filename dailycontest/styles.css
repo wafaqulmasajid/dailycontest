@@ -13,8 +13,8 @@
     /* display: block; */
     position: fixed;
     top: -28px;
-    left: 12px;
-    right: 12px;
+    left: 5vh;
+    right: 5vh;
     margin: auto;
     min-width: 300px;
     max-width: 75%;
@@ -24,8 +24,9 @@
 .hidden{
     position: fixed;
     top: -105vh;
-    /* left: 10vh;
-    right: 10vh; */
+    margin: auto;
+    left: 5vh;
+    right: 5vh;
     min-width: 300px;
     max-width: 75%;
     transition: 0.5s;
