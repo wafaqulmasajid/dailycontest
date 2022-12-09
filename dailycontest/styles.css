@@ -10,12 +10,11 @@
 } */
 
 .visible{
-    /* display: block; */
     position: fixed;
     top: -28px;
-    left: 5vh;
+    /* left: 5vh;
     right: 5vh;
-    margin: auto;
+    margin: auto; */
     min-width: 300px;
     max-width: 75%;
     transition: 0.5s;
@@ -24,9 +23,9 @@
 .hidden{
     position: fixed;
     top: -105vh;
-    margin: auto;
+    /* margin: auto;
     left: 5vh;
-    right: 5vh;
+    right: 5vh; */
     min-width: 300px;
     max-width: 75%;
     transition: 0.5s;
