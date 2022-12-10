@@ -9,7 +9,7 @@
     display: none;
 } */
 
-.visible{
+.visible {
     position: fixed;
     top: -28px;
     /* left: 5vh;
@@ -20,7 +20,7 @@
     transition: 0.5s;
 }
 
-.hidden{
+.hidden {
     position: fixed;
     top: -105vh;
     /* margin: auto;
@@ -46,9 +46,14 @@
 
 .logo {
     height: 200px;
+    width: 200px;
     align-items: center;
     text-align: center;
-    padding: auto auto auto auto;
+    padding: 10px;
+    margin: auto auto;
+    background-color: rgba(227, 254, 217, 0.211);
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 .head {

@@ -20,18 +20,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="/images/site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>افتخار المکاتب / روزنامچہ</title>
+    <title>افتخار المکاتب روزنامچہ</title>
 </head>
 
-<body class="bg-dark text-light">
-    <div class="container ">
+<body class="bg-dark text-light col-md-6 offset-md-4">
+    <div class="container">
         <!-- ---------------head----------- -->
-        <div class="my-6 m-head">
+        <div class="col-md-6 my-6 m-head">
             <h1 class="text-center my-4 text-success">
                 افتخار المکاتب تجوید القرآن <br> جعفرا بازار، گورکھپور، یو پی<br>
                 <span class="my-3">TajweedulQuraan, Jafra Bazar <br> Gorakhpur, U.P.</span>
             </h1>
-            <div class="logo">
+            <div class="text-center">
                 <img class="logo" src="../images/logo.png">
             </div>
             <h3 class="text-center my-4">
@@ -59,23 +59,14 @@
                 </span>
             </p>
         </div>
-        <br>
-        <br>
-        <hr>
-        <br>
-        <br>
-        <!-- <form class="row g-3" id="form" name="submit-to-google-sheet">
-        action="https://script.google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec"
-            ---- name="submit-to-google-sheet" method="post"---- -->
-        <!-- ---------------time----------- -->
         <div class="col-md-6 my-3">
+            <hr>
             <p class="head">وقت</p>
             <!-- <label for="time" class="form-label">current time</label> -->
             <h5 type="datetime" desabled class="text-center text-success" name="time" id="current-time" value="">
             </h5>
             <hr>
         </div>
-        <!-- <form name="form"> -->
         <!-- ---------------Name----------- -->
         <div class="col-md-6 my-3">
             <p id="nmsg" class="text-danger text-center"></p>
@@ -266,8 +257,8 @@
                         غیر حاضر
                     </label>
                 </div>
+                <hr>
             </div>
-            <hr>
             <!-- ---------------deeniyat----------- -->
             <div class="col-md-6 my-3" id="deeniyat" style="display: none;">
                 <p id="hdmsg" class="text-danger text-center"></p>
@@ -438,6 +429,13 @@
                     نہیں کیا
                 </label>
             </div>
+        </div>
+        <hr>
+        <div class="col-md-6 mt-5">
+            <p class="text-danger">
+                براہ کرم اس فارم کو ٢٤ گھنٹوں میں صرف ایک مرتبہ جمع کریں <br>
+                ایک سے زیادہ بار جمع کرنے پر اس دن کی کوئی بھی تفصیل شمار نہیں کی جاۓگی
+            </p>
             <button type="button" class="btn btn-primary my-3 container" onclick="submit()">جمع
                 کریں</button>
         </div>
@@ -450,12 +448,9 @@
                 <button class="btn btn-primary btn-sm" onclick="okay()">ٹھیک ہے</button>
             </div>
         </div>
-        <!-- </form> -->
         <!-- -------------------alert box------------------- -->
     </div>
-    <!-- <template> -->
     <form action="submit" name="submit-to-google-sheet" style="display: none;">
-        <!--------style="display: none;"> ----------->
         <input type="text" name="Time" id="time">
         <input type="text" name="Name" id="nname">
         <input type="text" name="Class" id="nclass">
@@ -466,26 +461,6 @@
         <input type="text" name="Khidmat" id="nkhidmat">
         <button type="submit" id="submit">Submit</button>
     </form>
-    <!-- </template> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <!-- <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js"
-        crossorigin="anonymous"></script>
-    <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js"
-        crossorigin="anonymous">
-        </script>
-    <script type="importmap">
-    {
-      "imports": {
-        "@popperjs/core": "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js",
-        "bootstrap": "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.esm.min.js"
-      }
-    }
-    </script>
-    <script type="module">
-        import * as bootstrap from 'bootstrap'
-
-        new bootstrap.Popover(document.getElementById('popoverButton'))
-    </script> -->
     <script src="script.js"></script>
 </body>
 

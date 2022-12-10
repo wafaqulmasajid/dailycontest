@@ -165,16 +165,6 @@ const kmsg = document.getElementById("kmsg")
 
 // ---------------- form submit with validation -------------
 
-// const scriptURL = 'https://script.google.com/macros/s/AKfycbxIkGZwJ40NeflsZfxwZk99VGH5GfmuJtaEtZpLt8Aq92NUAgmiLg0Vrt0ysK2XKw3h/exec'
-// const form = document.forms['submit-to-google-sheet']
-
-// form.addEventListener('submit', e => {
-//   e.preventDefault()
-//   fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-//     .then(response => alert('Success!', response), form.clear)
-//     .catch(error => alert('Error!', error.message))
-// })
-
 var allrt = document.getElementById("alert")// alrt box
 var almsg = document.getElementById("almsg") // art msg
 
@@ -184,16 +174,6 @@ var ergreenn = almsg.classList.remove("text-success");
 var erredn = almsg.classList.remove("text-danger");
 
 function submit() {
-  // var name = document.getElementById("name").value
-  // var ctime = time
-  // var tayyari = document.querySelector('input[name="tayyari"]:checked').value;
-  // var asbaq = document.querySelector('input[name="asbaq"]:checked').value;
-  // var khidmat = document.querySelector('input[name="khidmat"]:checked').value;
-  // alert(ctime)
-  // var namaz = document.getElementById
-  // alert(document.getElementById("subah"))
-
-
   // --------------------- collecting data -------------------
   const naam = document.getElementById("name").value
 
@@ -226,13 +206,12 @@ function submit() {
 
   const none = document.getElementById("none").checked ? document.getElementById("none").value + "," : "";
 
-  // const tayyari = document.querySelector('input[name="tayyari"]:checked').value
   const kiya = document.getElementById("kiya").checked ? document.getElementById("kiya").value + "," : ""
   const nahin_kiya = document.getElementById("nahin_kiya").checked ? document.getElementById("nahin_kiya").value + "," : ""
-  // const asbaq = document.querySelector('input[name="asbaq"]:checked').value
+
   const bdhe = document.getElementById("bdhe").checked ? document.getElementById("bdhe").value + "," : ""
   const nahin_bdhe = document.getElementById("nahin_bdhe").checked ? document.getElementById("nahin_bdhe").value + "," : ""
-  // const khddmat = document.querySelector('input[name="khidmat"]:checked').value
+
   const k_kiya = document.getElementById("k_kiya").checked ? document.getElementById("k_kiya").value + "," : ""
   const k_nahin_kiya = document.getElementById("k_nahin_kiya").checked ? document.getElementById("k_nahin_kiya").value + "," : ""
 
@@ -247,7 +226,7 @@ function submit() {
     asbaq: bdhe + nahin_bdhe,
     khidmat: k_kiya + k_nahin_kiya,
   }
-  //  -------------------------- validating form details -------------------
+  //  -------------------------- validating form details and throwing errors in error ids -------------------
   if (formdata.naam.length == "") {
     nmsg.innerHTML = "براہ کرم نام چنیں", window.location.hash = "#current-time", setTimeout(function () {
       nmsg.innerHTML = ""
@@ -286,6 +265,7 @@ function submit() {
   // ---------------------- output after validation -------------------
   else {
 
+    // -------------sending details to the hidden (main) form-----------------
     let nname = document.getElementById("nname").value = formdata.naam
     let nclass = document.getElementById("nclass").value = formdata.class
     let nattendance = document.getElementById("nattendance").value = formdata.hazri
@@ -294,6 +274,7 @@ function submit() {
     let nasbaq = document.getElementById("nasbaq").value = formdata.asbaq
     let nkhidmat = document.getElementById("nkhidmat").value = formdata.khidmat
 
+    // -----------------------form submit script---------------------
 
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzerlClZ6gC39DDGrCMdduyS3tDjXlr9kWvAkJg-_R2wtFHXfctZV4E2WwiLmyHGRye/exec'
     const form = document.forms['submit-to-google-sheet']
@@ -318,63 +299,20 @@ function submit() {
           almsg.innerText = `انالله و انا الیہ راجعون\n ہمیں افسوس ہے ابھی آپکی تفصیل جمع نہیں ہو سکی ہے\n دوبارہ کوشش کریں"`
         })
     })
+    // ------submiting the hidden form-----------
     return sub()
   }
-}function sub(){
-  document.getElementById("submit").click()
 }
 
-
-
-// await Excel.run(async (context) => {
-//   let sheet = context.workbook.worksheets.getItem("data");
-
-//   let range = sheet.getRange("B2:C5");
-//   range.load("address");
-//   await context.sync();
-
-//   console.log(`The address of the range B2:C5 is "${range.address}"`);
-// });
+function sub() {
+  document.getElementById("submit").click()
+}
 
 // --------------------hiding alert box --------------
 
 function okay() {
-  allrt.classList.add("hidden")
   allrt.classList.remove("visible")
+  allrt.classList.add("hidden")
   ergreenn
   erredn
 }
-  // const scriptURL = 'https://google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
-  // const form = formdata // document.forms['submit-to-google-sheet']
-  // // document.getElementById("sub").addEventListener('click', e => {
-  // //   e.preventDefault()
-  // fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-  //   .then(response => alert('Success!', response), document.getElementById("form").clear)
-  //   .catch(error => alert('Error!', error.message))
-  // )
-
-  // jquery.ajax({
-  //   type: 'post',
-  //   data: formdata.serialize(),
-  //   success: function (result) {
-  //     console.log(result);
-  //   }
-  // })
-  // var url = 'https://script.google.com/macros/s/AKfycbxJc6FiCBdPEIPx8Im5rffnzyOh9nNEHwkN0ybDj4ySTjdsX_kjDjEz-Tzhpjl7IepQbQ/exec'
-  // var url = "http://swapi.co/api/";
-
-  // $.ajax({
-  //   type: "POST",
-  //   url: url,
-  //   data: JSON.stringify(formdata),
-  //   contentType: "application/json; charset=utf-8",
-  //   dataType: "json",
-  //   error: function () {
-  //     alert("Error");
-  //   },
-  //   success: function () {
-  //     alert("OK");
-  //   }
-  // });
-
-// }
