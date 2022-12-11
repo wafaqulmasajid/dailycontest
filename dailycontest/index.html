@@ -10,9 +10,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
         rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
-    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -25,7 +22,7 @@
 
 <body class="bg-dark text-light col-md-6 offset-md-4">
     <div class="container">
-        <!-- ---------------head----------- -->
+    <!-- ---------------head----------- -->
         <div class="col-md-6 my-6 m-head">
             <h1 class="text-center my-4 text-success">
                 افتخار المکاتب تجوید القرآن <br> جعفرا بازار، گورکھپور، یو پی<br>
@@ -51,7 +48,6 @@
                 پھر یہ سارے اسٹار سال و چھ مہینے میں جوڑ کر ایک بڑا انعام بھی ملے گا ان شاءاللہ<br>
                 <br>
                 <br>
-                <!-- <hr> -->
                 <span class="text-bolder">
                     نوٹ : - انعام ہر ماہ صرف تین سے پانچ اسٹار حاصل کرنے والے کو ہی ملے گا۔<br>
 
@@ -62,7 +58,6 @@
         <div class="col-md-6 my-3">
             <hr>
             <p class="head">وقت</p>
-            <!-- <label for="time" class="form-label">current time</label> -->
             <h5 type="datetime" desabled class="text-center text-success" name="time" id="current-time" value="">
             </h5>
             <hr>
@@ -376,7 +371,7 @@
         <!-- ---------------Maktab ki tayyari----------- -->
         <div class="col-md-6 my-3">
             <p id="mmsg" class="text-danger text-center"></p>
-            <p class="head">مکتب کی تیاری؟</p>
+            <p class="head">مکتب کی تیاری</p>
             <div class="form-check">
                 <input class="form-check-input" name="tayyari" value="کیا" type="radio" id="kiya">
                 <label class="form-check-label text-success" for="gridCheck">
@@ -431,7 +426,7 @@
             </div>
         </div>
         <hr>
-        <div class="col-md-6 mt-5">
+        <div class="col-md-6 mt-5"> <!-------info-------->
             <p class="text-danger">
                 براہ کرم اس فارم کو ٢٤ گھنٹوں میں صرف ایک مرتبہ جمع کریں <br>
                 ایک سے زیادہ بار جمع کرنے پر اس دن کی کوئی بھی تفصیل شمار نہیں کی جاۓگی
@@ -439,6 +434,7 @@
             <button type="button" class="btn btn-primary my-3 container" onclick="submit()">جمع
                 کریں</button>
         </div>
+        <!-- -------------------alert box------------------- -->
         <div class="card my-5 mx-5 text-center align-self-center hidden" id="alert">
             <div class="card-body">
                 <h5 class="card-title text-black">ہوشیار</h5>
@@ -448,7 +444,6 @@
                 <button class="btn btn-primary btn-sm" onclick="okay()">ٹھیک ہے</button>
             </div>
         </div>
-        <!-- -------------------alert box------------------- -->
     </div>
     <form action="submit" name="submit-to-google-sheet" style="display: none;">
         <input type="text" name="Time" id="time">

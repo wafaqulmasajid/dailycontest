@@ -1,20 +1,25 @@
-* :focus {
-    outline: none;
+/* how to font from file code taken from " https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css " */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+@font-face {
+    font-family: "Jameel Regular";
+    src: url('../font/font/Jameel_Noori_Nastaliq_Regular.ttf');
 }
 
-/* #alert{
-    font-family: 'Poppins', sans-serif;
-    position: fixed;
-    top: 15px;
-    display: none;
-} */
+body{
+    font-family: "Jameel Regular";
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+}
+
+#current-time{
+    font-family: "poppins";
+}
 
 .visible {
     position: fixed;
     top: -28px;
-    /* left: 5vh;
-    right: 5vh;
-    margin: auto; */
     min-width: 300px;
     max-width: 75%;
     transition: 0.5s;
@@ -23,26 +28,15 @@
 .hidden {
     position: fixed;
     top: -105vh;
-    /* margin: auto;
-    left: 5vh;
-    right: 5vh; */
     min-width: 300px;
     max-width: 75%;
     transition: 0.5s;
 }
 
-/* #alert{
-    font-family: 'Poppins', sans-serif;
-    position: static;
-    top: 0px;
-    transition: 0.5s;
-} */
-
 .head span {
     text-align: center;
-    font: roboto, regular;
+    font: "roboto, regular";
 }
-
 
 .logo {
     height: 200px;
@@ -51,7 +45,7 @@
     text-align: center;
     padding: 10px;
     margin: auto auto;
-    background-color: rgba(227, 254, 217, 0.211);
+    background-color: rgba(255, 255, 255, 0.211);
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
 }
@@ -59,7 +53,7 @@
 .head {
     text-align: center;
     font-size: larger;
-    font-weight: bold;
+    font-weight: 500;
     border-top: 1px solid green;
     border-radius: 5px;
     padding: 10px auto auto auto;
@@ -68,7 +62,7 @@
 .m-head {
     text-align: center;
     font-size: larger;
-    font-weight: bold;
+    /* font-weight: bold; */
     border-bottom: 1px solid green;
     border-radius: 5px;
     padding: 10px auto auto auto;
@@ -91,13 +85,4 @@
 .col-md-6 label,
 option {
     text-align: end;
-}
-
-@font-face {
-    font-family: "jameel-noori-nastaleeq-kasheeda";
-    src: url("https://candyfonts.com/wp-data/2020/12/04/119068/Jameel Noori Nastaleeq Kasheeda.ttf") format("woff"),
-}
-
-body {
-    font-family: "jameel-noori-nastaleeq-kasheeda";
 }
