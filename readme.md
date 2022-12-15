@@ -10,4 +10,4 @@ to discuss what you would like to change.
 Please make sure to update tests as appropriate.
 
 # Programmed by [Taha Kazmi](https://lfgraphics.github.io/portfolio/)
-#### Vist thr [Home Page](https://iftikharulmakatib.github.io/dailycontest/)
+#### Vist the [Home Page](https://iftikharulmakatib.github.io/dailycontest/)
