@@ -1,3 +1,14 @@
+// --------- Breaking day/night --------------
+
+function twoFourBreaker(hour){
+  let breaker = hour % 12;
+  breaker = breaker ? breaker : 12;
+  return breaker;
+}
+
+
+
+
 // ------------------ showing date and time------------------
 function doDate() {
   var str = "";
@@ -7,7 +18,7 @@ function doDate() {
 
   var now = new Date();
 
-  str += days[now.getDay()] + " / " + now.getDate() + " / " + months[now.getMonth()] + " / " + now.getFullYear() + " - " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+  str += days[now.getDay()] + " / " + now.getDate() + " / " + months[now.getMonth()] + " / " + now.getFullYear() + " - " + twoFourBreaker(now.getHours()) + ":" + now.getMinutes() + ":" + now.getSeconds();
   document.getElementById("current-time").innerHTML = str;
   document.getElementById("time").value = str;
 }
