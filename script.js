@@ -168,11 +168,6 @@ const kmsg = document.getElementById("kmsg")
 var allrt = document.getElementById("alert")// alrt box
 var almsg = document.getElementById("almsg") // art msg
 
-var ergreen = almsg.classList.add("text-success");
-var erred = almsg.classList.remove("text-black"); almsg.classList.add("text-danger");
-var ergreenn = almsg.classList.remove("text-success");
-var erredn = almsg.classList.remove("text-danger");
-
 function submit() {
   // --------------------- collecting data -------------------
   const naam = document.getElementById("name").value
@@ -264,9 +259,6 @@ function submit() {
   }
   // ---------------------- output after validation -------------------
   else {
-
-    document.getElementById("submiting").innerText = "........جمع کیا جا رہا ہے"
-
     document.getElementById("loader").style.display = "block";
 
     // -------------sending details to the hidden (main) form-----------------
@@ -286,23 +278,23 @@ function submit() {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form) })
         .then(_response => {
+          document.getElementById("loader").style.display = "none";
+
           allrt.classList.remove("hidden");
           allrt.classList.add("visible");
           almsg.classList.remove("text-dark");
           almsg.classList.add("text-success");
           almsg.innerText = `ماشا اللہ لا قو الا باللہ\n مبارک ہو \nآپکی آج کی مکمل تفصیل جمع کر لی گئی ہے`
-          document.getElementById("submiting").innerText = "جمع کریں"
-
-          document.getElementById("loader").style.display = "none";
         })
       form.reset()
         .catch(_error => {
+          document.getElementById("loader").style.display = "none";
+
           allrt.classList.remove("hidden");
           allrt.classList.add("visible");
           almsg.classList.remove("text-dark");
           almsg.classList.add("text-danger");
           almsg.innerText = `انالله و انا الیہ راجعون\n ہمیں افسوس ہے ابھی آپکی تفصیل جمع نہیں ہو سکی ہے\n دوبارہ کوشش کریں"`
-          document.getElementById("submiting").innerText = "جمع کریں"
         })
     })
     // ------submiting the hidden form-----------
@@ -319,6 +311,6 @@ function sub() {
 function okay() {
   allrt.classList.remove("visible")
   allrt.classList.add("hidden")
-  ergreenn
-  erredn
+  almsg.classList.remove("text-success");
+  almsg.classList.remove("text-danger");
 }
