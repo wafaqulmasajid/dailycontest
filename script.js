@@ -2,8 +2,8 @@
 function doDate() {
   var str = "";
 
-  var days = new Array("اتوار", "سوموار", "منگل", "بدھ", "جمعرات", "جمعہ", "سنیچر");
-  var months = new Array("جنوری", "فروری", "مارچ", "اپریل", "مائی", "جون", "جلائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر");
+  var days = ["اتوار", "سوموار", "منگل", "بدھ", "جمعرات", "جمعہ", "سنیچر"];
+  var months = ["جنوری", "فروری", "مارچ", "اپریل", "مائی", "جون", "جلائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر"];
 
   var now = new Date();
 
@@ -34,7 +34,7 @@ function cldeeniyat() {
 // -------------------enabling and desabling hifz, nazra - attendance checkboxes-------------
 
 function classchk() {
-  if (document.getElementById("missed").checked == true) {
+  if (document.getElementById("missed").checked === true) {
     document.getElementById("subah").disabled = true;
     document.getElementById("dopahar").disabled = true;
     document.getElementById("sham").disabled = true;
@@ -49,7 +49,7 @@ function classchk() {
 }
 
 function ccchk() {
-  if (document.getElementById("hc").checked == true) {
+  if (document.getElementById("hc").checked === true) {
     document.getElementById("subah").disabled = true;
     document.getElementById("dopahar").disabled = true;
     document.getElementById("sham").disabled = true;
@@ -65,11 +65,11 @@ function ccchk() {
 
 
 function desablemissed() {
-  if (event.currentTarget.checked == true ||
-    document.getElementById("subah").checked == true ||
-    document.getElementById("dopahar").checked == true ||
-    document.getElementById("sham").checked == true ||
-    document.getElementById("hc").checked == true == true) {
+  if (event.currentTarget.checked === true ||
+    document.getElementById("subah").checked === true ||
+    document.getElementById("dopahar").checked === true ||
+    document.getElementById("sham").checked === true ||
+    document.getElementById("hc").checked === true === true) {
     document.getElementById("missed").disabled = true;
     document.getElementById("hc").disabled = true;
   }
@@ -80,9 +80,9 @@ function desablemissed() {
 }
 
 function desabledmissed() {
-  if (event.currentTarget.checked == true ||
-    document.getElementById("nsubah").checked == true ||
-    document.getElementById("ndopahar").checked == true == true) {
+  if (event.currentTarget.checked === true ||
+    document.getElementById("nsubah").checked === true ||
+    document.getElementById("ndopahar").checked === true === true) {
     document.getElementById("nmissed").disabled = true;
     document.getElementById("nc").disabled = true;
   }
@@ -92,7 +92,7 @@ function desabledmissed() {
   }
 }
 function desablesd() {
-  if (document.getElementById("nmissed").checked == true) {
+  if (document.getElementById("nmissed").checked === true) {
     document.getElementById("nsubah").disabled = true;
     document.getElementById("ndopahar").disabled = true;
     document.getElementById("nc").disabled = true;
@@ -105,7 +105,7 @@ function desablesd() {
 }
 
 function desablesdc() {
-  if (document.getElementById("nc").checked == true) {
+  if (document.getElementById("nc").checked === true) {
     document.getElementById("nsubah").disabled = true;
     document.getElementById("ndopahar").disabled = true;
     document.getElementById("nmissed").disabled = true;
@@ -121,7 +121,7 @@ function desablesdc() {
 // -------------------enabling and desabling namaz checkboxes-------------
 
 function namazcheck() {
-  if (document.getElementById("none").checked == true) {
+  if (document.getElementById("none").checked === true) {
     document.getElementById("fajr").disabled = true;
     document.getElementById("zuhr").disabled = true;
     document.getElementById("asr").disabled = true;
@@ -137,12 +137,12 @@ function namazcheck() {
   }
 }
 function desableNone() {
-  if (event.currentTarget.checked == true ||
-    document.getElementById("fajr").checked == true ||
-    document.getElementById("zuhr").checked == true ||
-    document.getElementById("asr").checked == true ||
-    document.getElementById("maghrib").checked == true ||
-    document.getElementById("isha").checked == true == true) {
+  if (event.currentTarget.checked === true ||
+    document.getElementById("fajr").checked === true ||
+    document.getElementById("zuhr").checked === true ||
+    document.getElementById("asr").checked === true ||
+    document.getElementById("maghrib").checked === true ||
+    document.getElementById("isha").checked === true === true) {
     document.getElementById("none").disabled = true;
   }
   else {
