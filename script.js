@@ -265,6 +265,10 @@ function submit() {
   // ---------------------- output after validation -------------------
   else {
 
+    document.getElementById("submiting").innerText = "........جمع کیا جا رہا ہے"
+
+    document.getElementById("loader").style.display = "block";
+
     // -------------sending details to the hidden (main) form-----------------
     let nname = document.getElementById("nname").value = formdata.naam
     let nclass = document.getElementById("nclass").value = formdata.class
@@ -287,8 +291,9 @@ function submit() {
           almsg.classList.remove("text-dark");
           almsg.classList.add("text-success");
           almsg.innerText = `ماشا اللہ لا قو الا باللہ\n مبارک ہو \nآپکی آج کی مکمل تفصیل جمع کر لی گئی ہے`
+          document.getElementById("submiting").innerText = "جمع کریں"
 
-          // document.forms['form'].element.reset()
+          document.getElementById("loader").style.display = "none";
         })
       form.reset()
         .catch(_error => {
@@ -297,6 +302,7 @@ function submit() {
           almsg.classList.remove("text-dark");
           almsg.classList.add("text-danger");
           almsg.innerText = `انالله و انا الیہ راجعون\n ہمیں افسوس ہے ابھی آپکی تفصیل جمع نہیں ہو سکی ہے\n دوبارہ کوشش کریں"`
+          document.getElementById("submiting").innerText = "جمع کریں"
         })
     })
     // ------submiting the hidden form-----------

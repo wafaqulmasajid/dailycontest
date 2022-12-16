@@ -20,8 +20,11 @@
     <title>افتخار المکاتب روزنامچہ</title>
 </head>
 
-<body class="bg-dark text-light col-md-6 offset-md-4">
-    <div class="container">
+<body class="bg-dark text-light">
+    <!-- <div class="col-md-6"> -->
+        <div class="loader-container text-center" id="loader">
+            <div class="spinner"></div>
+        </div>
         <!-- ---------------head----------- -->
         <div class="col-md-6 my-6 m-head">
             <h1 class="text-center my-4 text-success">
@@ -55,7 +58,7 @@
                 </span>
             </p>
         </div>
-        <div class="col-md-6 my-3">
+        <div class="col-md-6 my-3 mx-1">
             <hr>
             <p class="head">وقت</p>
             <h5 type="datetime" desabled class="text-center text-success" name="time" id="current-time" value="">
@@ -63,7 +66,7 @@
             <hr>
         </div>
         <!-- ---------------Name----------- -->
-        <div class="col-md-6 my-3">
+        <div class="col-md-6 my-3 mx-1">
             <p id="nmsg" class="text-danger text-center"></p>
             <p class="form-label head">نام</p>
             <select id="name" name="name" class="form-select">
@@ -183,7 +186,7 @@
             <hr>
         </div>
         <!-- ---------------class----------- -->
-        <div class="col-md-6 my-3">
+        <div class="col-md-6 my-3 mx-1">
             <p id="dmsg" class="text-danger text-center"></p>
             <p class="head">درجہ</p>
             <div class="form-check">
@@ -211,8 +214,8 @@
         </div>
         <!-- ---------------Attendance----------- -->
         <!-- ---------------hifz----------- -->
-        <div id="attendance">
-            <div class="col-md-6 my-3" id="hifz" style="display: none;">
+        <div id="attendance col-md-6 my-3 mx-1">
+            <div class="col-md-6 my-3 mx-1" id="hifz" style="display: none;">
                 <p id="hmsg" class="text-danger text-center"></p>
                 <p class="head">حاضری</p>
                 <div class="form-check">
@@ -255,7 +258,7 @@
                 <hr>
             </div>
             <!-- ---------------deeniyat----------- -->
-            <div class="col-md-6 my-3" id="deeniyat" style="display: none;">
+            <div class="col-md-6 my-3 mx-1" id="deeniyat" style="display: none;">
                 <p id="hdmsg" class="text-danger text-center"></p>
                 <p class="head">حاضری</p>
                 <div class="form-check">
@@ -282,7 +285,7 @@
                 <hr>
             </div>
             <!-- ---------------nazra----------- -->
-            <div class="col-md-6 my-3" id="nazra" style="display: none;">
+            <div class="col-md-6 my-3 mx-1" id="nazra" style="display: none;">
                 <p id="hnmsg" class="text-danger text-center"></p>
                 <p class="head">حاضری</p>
                 <div class="form-check">
@@ -319,7 +322,7 @@
             </div>
         </div>
         <!-- ---------------Namazen----------- -->
-        <div class="col-md-6 my-3">
+        <div class="col-md-6 my-3 mx-1">
             <p id="namsg" class="text-danger text-center"></p>
             <p class="head">نماز</p>
             <div class="form-check">
@@ -369,7 +372,7 @@
             <hr>
         </div>
         <!-- ---------------Maktab ki tayyari----------- -->
-        <div class="col-md-6 my-3">
+        <div class="col-md-6 my-3 mx-1">
             <p id="mmsg" class="text-danger text-center"></p>
             <p class="head">مکتب کی تیاری</p>
             <div class="form-check">
@@ -388,7 +391,7 @@
             <hr>
         </div>
         <!-- ---------------Sabaq----------- -->
-        <div class="col-md-6 my-3">
+        <div class="col-md-6 my-3 mx-1">
             <p id="smsg" class="text-danger text-center"></p>
             <p class="head">اسباق</p>
             <div class="form-check">
@@ -407,7 +410,7 @@
             <hr>
         </div>
         <!-- ---------------khidmat----------- -->
-        <div class="col-md-6 my-3">
+        <div class="col-md-6 my-3 mx-1">
             <p id="kmsg" class="text-danger text-center"></p>
             <p class="head">عملی مشقیں</p>
             <p class="text-center">گھر میں داخل ہوتے و نکلتے وقت کم از کم ٥ مرتبہ سلام کیا</p>
@@ -424,14 +427,14 @@
                     نہیں کیا
                 </label>
             </div>
+            <hr>
         </div>
-        <hr>
         <div class="col-md-6 mt-5"> <!-------info-------->
             <p class="text-danger">
                 براہ کرم اس فارم کو ٢٤ گھنٹوں میں صرف ایک مرتبہ جمع کریں <br>
                 ایک سے زیادہ بار جمع کرنے پر اس دن کی کوئی بھی تفصیل شمار نہیں کی جاۓگی
             </p>
-            <button type="button" class="btn btn-primary my-3 container" onclick="submit()">جمع
+            <button type="button" class="btn btn-primary my-3 mx-1 container" id="submiting" onclick="submit()">جمع
                 کریں</button>
         </div>
         <!-- -------------------alert box------------------- -->
@@ -444,7 +447,7 @@
                 <button class="btn btn-primary btn-sm" onclick="okay()">ٹھیک ہے</button>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
     <!-- --------------------- main form ------------------ -->
     <form action="submit" name="submit-to-google-sheet" style="display: none;">
         <input type="text" name="Time" id="time">

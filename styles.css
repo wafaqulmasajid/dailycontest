@@ -12,6 +12,42 @@ body {
     word-spacing: 2px;
 }
 
+.loader-container {
+    height: 110vh;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto auto auto;
+    position: fixed;
+    background: #000;
+    z-index: 1;
+}
+
+#loader{
+    display: none;
+}
+
+.spinner {
+    width: 64px;
+    height: 64px;
+    border: 8px solid;
+    border-color: green transparent green transparent;
+    border-radius: 50%;
+    margin: 75% auto 50% auto;
+    animation: spin-anim 1.2s linear infinite;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 h1 span {
     font-family: "poppins";
 }
