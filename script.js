@@ -1,13 +1,24 @@
+// --------- Breaking day/night --------------
+
+function twoFourBreaker(hour){
+  let breaker = hour % 12;
+  breaker = breaker ? breaker : 12;
+  return breaker;
+}
+
+
+
+
 // ------------------ showing date and time------------------
 function doDate() {
-  var str = "";
+  let str = "";
 
-  var days = ["اتوار", "سوموار", "منگل", "بدھ", "جمعرات", "جمعہ", "سنیچر"];
-  var months = ["جنوری", "فروری", "مارچ", "اپریل", "مائی", "جون", "جلائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر"];
+  let days = ["اتوار", "سوموار", "منگل", "بدھ", "جمعرات", "جمعہ", "سنیچر"];
+  let months = ["جنوری", "فروری", "مارچ", "اپریل", "مائی", "جون", "جلائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر"];
 
-  var now = new Date();
+  let now = new Date();
 
-  str += days[now.getDay()] + " / " + now.getDate() + " / " + months[now.getMonth()] + " / " + now.getFullYear() + " - " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+  str += days[now.getDay()] + " / " + now.getDate() + " / " + months[now.getMonth()] + " / " + now.getFullYear() + " - " + twoFourBreaker(now.getHours()) + ":" + now.getMinutes() + ":" + now.getSeconds();
   document.getElementById("current-time").innerHTML = str;
   document.getElementById("time").value = str;
 }
@@ -165,8 +176,8 @@ const kmsg = document.getElementById("kmsg")
 
 // ---------------- form submit with validation -------------
 
-var allrt = document.getElementById("alert")// alrt box
-var almsg = document.getElementById("almsg") // art msg
+let allrt = document.getElementById("alert")// alrt box
+let almsg = document.getElementById("almsg") // art msg
 
 function submit() {
   // --------------------- collecting data -------------------
