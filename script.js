@@ -1,17 +1,15 @@
 // --------- Breaking day/night --------------
 
-function twoFourBreaker(hour){
+function twoFourBreaker(hour) {
   let breaker = hour % 12;
   breaker = breaker ? breaker : 12;
   return breaker;
 }
 
-
-
-
 // ------------------ showing date and time------------------
 function doDate() {
   let str = "";
+  let str2 = "";
 
   let days = ["اتوار", "سوموار", "منگل", "بدھ", "جمعرات", "جمعہ", "سنیچر"];
   let months = ["جنوری", "فروری", "مارچ", "اپریل", "مائی", "جون", "جلائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر"];
@@ -20,7 +18,8 @@ function doDate() {
 
   str += days[now.getDay()] + " / " + now.getDate() + " / " + months[now.getMonth()] + " / " + now.getFullYear() + " - " + twoFourBreaker(now.getHours()) + ":" + now.getMinutes() + ":" + now.getSeconds();
   document.getElementById("current-time").innerHTML = str;
-  document.getElementById("time").value = str;
+  str2+= days[now.getDay()] + " / " + now.getDate() + " / " + months[now.getMonth()] + " / " + now.getFullYear()
+  document.getElementById("time").value = str2;
 }
 setInterval(doDate, 1000);
 
@@ -183,50 +182,46 @@ function submit() {
   // --------------------- collecting data -------------------
   const naam = document.getElementById("name").value
 
-  const clh = document.getElementById("clh").checked ? document.getElementById("clh").value : "";
-  const cln = document.getElementById("cln").checked ? document.getElementById("cln").value : "";
-  const cld = document.getElementById("cld").checked ? document.getElementById("cld").value : "";
+  const clas = document.querySelector('input[name="class"]:checked') ? document.querySelector('input[name="class"]:checked').value : "";
 
-  const subah = document.getElementById("subah").checked ? document.getElementById("subah").value + "،" : "";
-  const dopahar = document.getElementById("dopahar").checked ? document.getElementById("dopahar").value + "،" : "";
-  const sham = document.getElementById("sham").checked ? document.getElementById("sham").value + "،" : "";
-  const hc = document.getElementById("hc").checked ? document.getElementById("hc").value + "،" : "";
+  const subah = document.getElementById("subah").checked ? parseFloat(document.getElementById("subah").value) : "";
+  const dopahar = document.getElementById("dopahar").checked ? parseFloat(document.getElementById("dopahar").value) : "";
+  const sham = document.getElementById("sham").checked ? parseFloat(document.getElementById("sham").value) : "";
+  const hc = document.getElementById("hc").checked ? parseFloat(document.getElementById("hc").value) : "";
 
-  const missed = document.getElementById("missed").checked ? document.getElementById("missed").value + "،" : "";
+  const missed = document.getElementById("missed").checked ? parseFloat(document.getElementById("missed").value) : "";
 
-  const hazir = document.getElementById("dhazir").checked ? document.getElementById("dhazir").value + "،" : "";
-  const gherhazir = document.getElementById("dgherhazir").checked ? document.getElementById("dgherhazir").value + "،" : "";
-  const dc = document.getElementById("dc").checked ? document.getElementById("dc").value + "،" : "";
+  const hazrid = document.querySelector('input[name="hazrid"]:checked') ? parseFloat(document.querySelector('input[name="hazrid"]:checked').value) : "";
 
-  const nsubah = document.getElementById("nsubah").checked ? document.getElementById("nsubah").value + "،" : ""
-  const ndopahar = document.getElementById("ndopahar").checked ? document.getElementById("ndopahar").value + "،" : ""
-  const nc = document.getElementById("nc").checked ? document.getElementById("nc").value + "،" : ""
+  const nsubah = document.getElementById("nsubah").checked ? parseFloat(document.getElementById("nsubah").value) : ""
+  const ndopahar = document.getElementById("ndopahar").checked ? parseFloat(document.getElementById("ndopahar").value) : ""
+  const nc = document.getElementById("nc").checked ? parseFloat(document.getElementById("nc").value) : ""
 
-  const nmissed = document.getElementById("nmissed").checked ? document.getElementById("nmissed").value : ""
+  const nmissed = document.getElementById("nmissed").checked ? parseFloat(document.getElementById("nmissed").value) : ""
 
-  const fajr = document.getElementById("fajr").checked ? document.getElementById("fajr").value + "،" : "";
-  const zuhr = document.getElementById("zuhr").checked ? document.getElementById("zuhr").value + "،" : "";
-  const asr = document.getElementById("asr").checked ? document.getElementById("asr").value + "،" : "";
-  const maghrib = document.getElementById("maghrib").checked ? document.getElementById("maghrib").value + "،" : "";
-  const isha = document.getElementById("isha").checked ? document.getElementById("isha").value + "،" : "";
+  const fajr = document.getElementById("fajr").checked ? parseFloat(document.getElementById("fajr").value) : "";
+  const zuhr = document.getElementById("zuhr").checked ? parseFloat(document.getElementById("zuhr").value) : "";
+  const asr = document.getElementById("asr").checked ? parseFloat(document.getElementById("asr").value) : "";
+  const maghrib = document.getElementById("maghrib").checked ? parseFloat(document.getElementById("maghrib").value) : "";
+  const isha = document.getElementById("isha").checked ? parseFloat(document.getElementById("isha").value) : "";
 
-  const none = document.getElementById("none").checked ? document.getElementById("none").value + "،" : "";
+  const none = document.getElementById("none").checked ? parseFloat(document.getElementById("none").value) : "";
 
-  const kiya = document.getElementById("kiya").checked ? document.getElementById("kiya").value + "،" : ""
-  const nahin_kiya = document.getElementById("nahin_kiya").checked ? document.getElementById("nahin_kiya").value + "،" : ""
+  const kiya = document.getElementById("kiya").checked ? parseFloat(document.getElementById("kiya").value) : ""
+  const nahin_kiya = document.getElementById("nahin_kiya").checked ? parseFloat(document.getElementById("nahin_kiya").value) : ""
 
-  const bdhe = document.getElementById("bdhe").checked ? document.getElementById("bdhe").value + "،" : ""
-  const nahin_bdhe = document.getElementById("nahin_bdhe").checked ? document.getElementById("nahin_bdhe").value + "،" : ""
+  const bdhe = document.getElementById("bdhe").checked ? parseFloat(document.getElementById("bdhe").value) : ""
+  const nahin_bdhe = document.getElementById("nahin_bdhe").checked ? parseFloat(document.getElementById("nahin_bdhe").value) : ""
 
-  const k_kiya = document.getElementById("k_kiya").checked ? document.getElementById("k_kiya").value + "،" : ""
-  const k_nahin_kiya = document.getElementById("k_nahin_kiya").checked ? document.getElementById("k_nahin_kiya").value + "،" : ""
+  const k_kiya = document.getElementById("k_kiya").checked ? parseFloat(document.getElementById("k_kiya").value) : ""
+  const k_nahin_kiya = document.getElementById("k_nahin_kiya").checked ? parseFloat(document.getElementById("k_nahin_kiya").value) : ""
 
   // --------------------taking form data to an object --------------------
 
   const formdata = {
     naam: naam,
-    class: clh + cln + cld,
-    hazri: subah + dopahar + sham + missed + hazir + gherhazir + nsubah + ndopahar + nmissed + hc + dc + nc,
+    class: clas,
+    hazri: subah + dopahar + sham + missed + nsubah + ndopahar + nmissed + hc + nc + hazrid,
     namaz: fajr + zuhr + asr + maghrib + isha + none,
     tayyari: kiya + nahin_kiya,
     asbaq: bdhe + nahin_bdhe,
