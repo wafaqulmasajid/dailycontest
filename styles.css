@@ -28,7 +28,7 @@ body {
     z-index: 1;
 }
 
-#loader{
+#loader {
     display: none;
 }
 
@@ -46,6 +46,7 @@ body {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -147,7 +148,7 @@ option {
 .copyright a {
     font-weight: bold;
     text-decoration: none;
-    color: white;
+    color: greenyellow;
 }
 
 .copyright p {
@@ -160,14 +161,34 @@ option {
     color: red;
 }
 
+#redinfo {
+    font-size: larger;
+    animation: color-change 1s infinite;
+    text-align: center;
+}
+
+@keyframes color-change {
+    0% {
+        color: red;
+    }
+
+    50% {
+        color: white;
+    }
+
+    100% {
+        color: red;
+    }
+}
+
 @media only screen and (max-width: 900px) {
-    .spinner{
+    .spinner {
         margin: 40% auto 50% auto;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    .spinner{
+    .spinner {
         margin: 75% auto 50% auto;
     }
 }

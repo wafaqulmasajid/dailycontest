@@ -9,7 +9,7 @@ function twoFourBreaker(hour) {
 // ------------------ showing date and time------------------
 function doDate() {
   let str = "";
-  let str2 = "";
+  // let str2 = "";
 
   let days = ["اتوار", "سوموار", "منگل", "بدھ", "جمعرات", "جمعہ", "سنیچر"];
   let months = ["جنوری", "فروری", "مارچ", "اپریل", "مائی", "جون", "جلائی", "اگست", "ستمبر", "اکتوبر", "نومبر", "دسمبر"];
@@ -18,8 +18,8 @@ function doDate() {
 
   str += days[now.getDay()] + " / " + now.getDate() + " / " + months[now.getMonth()] + " / " + now.getFullYear() + " - " + twoFourBreaker(now.getHours()) + ":" + now.getMinutes() + ":" + now.getSeconds();
   document.getElementById("current-time").innerHTML = str;
-  str2+= days[now.getDay()] + " / " + now.getDate() + " / " + months[now.getMonth()] + " / " + now.getFullYear()
-  document.getElementById("time").value = str2;
+  // str2 += days[now.getDay()] + " / " + now.getDate() + " / " + months[now.getMonth()] + " / " + now.getFullYear()
+  document.getElementById("time").value = str;
 }
 setInterval(doDate, 1000);
 
@@ -228,6 +228,7 @@ function submit() {
     khidmat: k_kiya + k_nahin_kiya,
   }
   //  -------------------------- validating form details and throwing errors in error ids -------------------
+
   if (formdata.naam.length == "") {
     nmsg.innerHTML = "براہ کرم نام چنیں", window.location.hash = "#current-time", setTimeout(function () {
       nmsg.innerHTML = ""
@@ -266,15 +267,14 @@ function submit() {
   // ---------------------- output after validation -------------------
   else {
     document.getElementById("loader").style.display = "block";
-
     // -------------sending details to the hidden (main) form-----------------
-    let nname = document.getElementById("nname").value = formdata.naam
-    let nclass = document.getElementById("nclass").value = formdata.class
-    let nattendance = document.getElementById("nattendance").value = formdata.hazri
-    let nnamaz = document.getElementById("nnamaz").value = formdata.namaz
-    let ntayyari = document.getElementById("ntayyari").value = formdata.tayyari
-    let nasbaq = document.getElementById("nasbaq").value = formdata.asbaq
-    let nkhidmat = document.getElementById("nkhidmat").value = formdata.khidmat
+    document.getElementById("nname").value = formdata.naam
+    document.getElementById("nclass").value = formdata.class
+    document.getElementById("nattendance").value = formdata.hazri
+    document.getElementById("nnamaz").value = formdata.namaz
+    document.getElementById("ntayyari").value = formdata.tayyari
+    document.getElementById("nasbaq").value = formdata.asbaq
+    document.getElementById("nkhidmat").value = formdata.khidmat
 
     // -----------------------form submit script---------------------
 
@@ -306,6 +306,7 @@ function submit() {
     // ------submiting the hidden form-----------
     return sub()
   }
+
 }
 
 function sub() {
