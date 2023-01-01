@@ -10,6 +10,7 @@
 body {
     font-family: "Jameel Regular";
     word-spacing: 2px;
+    overflow-x: hidden;
 }
 
 /* ------- loader codes taken from ("https://stackabuse.com/loading-animation-in-vanilla-javascript/") */
