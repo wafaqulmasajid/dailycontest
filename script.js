@@ -221,11 +221,11 @@ function submit() {
   const formdata = {
     naam: naam,
     class: clas,
-    hazri: parseFloat(subah) + parseFloat(dopahar) + parseFloat(sham) + parseFloat(missed) + parseFloat(nsubah) + parseFloat(ndopahar) + parseFloat(nmissed) + parseFloat(hc) + parseFloat(nc) + parseFloat(hazrid),
-    namaz: parseFloat(fajr) + parseFloat(zuhr) + parseFloat(asr) + parseFloat(maghrib) + parseFloat(isha) + parseFloat(none),
-    tayyari: parseFloat(kiya) + parseFloat(nahin_kiya),
-    asbaq: parseFloat(bdhe) + parseFloat(nahin_bdhe),
-    khidmat: parseFloat(k_kiya) + parseFloat(k_nahin_kiya),
+    hazri: subah + dopahar + sham + missed + nsubah + ndopahar + nmissed + hc + nc + hazrid,
+    namaz: fajr + zuhr + asr + maghrib + isha + none,
+    tayyari: kiya + nahin_kiya,
+    asbaq: bdhe + nahin_bdhe,
+    khidmat: k_kiya + k_nahin_kiya,
   }
   //  -------------------------- validating form details and throwing errors in error ids -------------------
 
