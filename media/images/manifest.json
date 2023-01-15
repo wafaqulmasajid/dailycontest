@@ -1,0 +1,49 @@
+{
+    "short_name": "Maktab",
+    "name": "Maktab: Daily deeni contest",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/logo.png",
+            "sizes": "1080x1080",
+            "type": "image/png"
+        }
+    ],
+    "id": "/?source=pwa",
+    "start_url": "/?source=pwa",
+    "background_color": "#3d9502",
+    "display_override": ["window-control-overlay", "minimal-ui"],
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#3d9502",
+    "description": "Make your child close to the deen alIslam",
+    "screenshots": [
+        {
+            "src": "/ss1.jpeg",
+            "type": "image/jpeg",
+            "sizes": "720x1520",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "/ss2.jpeg",
+            "type": "image/jpeg",
+            "sizes": "720x1520",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "/ss2.jpeg",
+            "type": "image/jpeg",
+            "sizes": "720x1520",
+            "form_factor": "narrow"
+        }
+    ]
+}
